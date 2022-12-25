@@ -21,7 +21,7 @@ const BenefitCard = ({icon, title, content, index}) => (
 const Benefits = () => (
   <section id="features" className={[layout.section, `sm:px-16 px-20`]}>
     <div className={layout.sectionInfo}>
-      <h2 className={styles.heading}>Benefits of becoming<br className="sm:block hidden"/>an Affiliate</h2>
+      <h2 className={styles.heading}>Benefits of becoming an Affiliate</h2>
     </div>
     <div className={`${layout.sectionItems} flex-col`}>
       {features.map((feature, index) => (
