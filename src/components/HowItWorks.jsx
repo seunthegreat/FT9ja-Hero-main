@@ -8,12 +8,12 @@ const HowItWorks = () => {
   
    return (
     <div 
-      className="flex flex-col container mx-auto py-8 items-center justify-center bg-secondary rounded-[10px]">
+      className="flex flex-col container lg:my-20 md:my-20 sm:my-10 xs:my-10 mx-auto py-8 items-center justify-center bg-secondary rounded-[10px]">
 
-      <h2 className="py-5 text-3xl text-white font-bold mb-4 text-center">How It Works</h2>
-      <p className="w-[60%] text-dimWhite mb-8 text-center">{loremIpsum}</p>
-      <div className='mb-10 rounded-[10px] overflow-hidden'>
-        <ReactPlayer url='https://www.youtube.com/watch?v=PHe0bXAIuk0' />
+      <h2 className="py-5 text-3xl font-bold mb-4 text-center text-white">How It Works</h2>
+      <p className="lg:w-[60%] md:w-[70%] sm:w-[80%] ss:w-[80%] px-10 text-dimWhite mb-8 text-center font-light">{loremIpsum}</p>
+      <div className='mb-10 rounded-[10px] overflow-hidden lg:w-1/2 md:w-1/2 sm:w-[70%] ss:w-[90%] xs:w-[90%]'>
+        <ReactPlayer url='https://www.youtube.com/watch?v=PHe0bXAIuk0'  width={"100%"}/>
       </div>
     </div>
   );
