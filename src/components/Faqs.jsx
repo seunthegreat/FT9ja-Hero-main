@@ -31,7 +31,7 @@ const Faqs = () => {
         <p className="w-[60%] mb-8 text-center">Have questions? We're here to help</p>
       </div>
 
-      <div className="mx-auto grid grid-cols-1 gap-5 lg:max-w-screen-md">
+      <div className="lg:mx-auto md:ml-10 sm:ml-10 ss:ml-10 xs:mx-10 grid grid-cols-1 gap-5 lg:max-w-screen-md">
           {faqs.map(({ id, question, list, answer, lists }, idx) => (
             <Disclosure key={id}>
               {({ open }) => (
@@ -39,10 +39,10 @@ const Faqs = () => {
                   <div key={id}>
                     <Disclosure.Button
                       as="div"
-                      className="text-md pb-8 border-b w-full cursor-pointer rounded-lg text-left font-bold "
+                      className="text-md pb-8 border-b w-full cursor-pointer lg:font-bold md:font-bold sm:font-bold"
                     >
                       <button
-                        className="flex w-full justify-between"
+                        className="flex w-full justify-between text-left"
                         data-value={open}
                         ref={(ref) => {
                           buttonRefs.current[idx] = ref
@@ -51,11 +51,11 @@ const Faqs = () => {
                       >
                         {question}
                         {open ? (
-                          <span className="rounded-full border-[1px] border-slate-300 p-1.5">
+                          <span className="md:mr-10 sm:mr-10 ss:mr-5 lg:mr-0 hidden sm:block rounded-full border-[1px] border-slate-300 p-1.5">
                             <BiMinus />
                           </span>
                         ) : (
-                          <span className="rounded-full border-[1px] border-slate-300 p-1.5">
+                          <span className="md:mr-10 sm:mr-10 ss:mr-5 lg:mr-0 hidden sm:block rounded-full border-[1px] border-slate-300 p-1.5">
                             <BsPlusLg />
                           </span>
                         )}
@@ -73,7 +73,7 @@ const Faqs = () => {
                       {open && (
                         <Disclosure.Panel
                           static
-                          className="my-2 flex w-full flex-col justify-between rounded-lg text-left"
+                          className="my-2 flex w-full flex-col justify-between rounded-lg"
                         >
                           {answer && answer}
                           {list && (
