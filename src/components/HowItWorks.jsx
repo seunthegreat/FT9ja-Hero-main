@@ -8,7 +8,7 @@ const HowItWorks = () => {
   
    return (
     <div 
-      className="flex flex-col container lg:my-20 md:my-20 sm:my-10 xs:my-10 mx-auto py-8 items-center justify-center bg-secondary rounded-[10px]">
+      className="flex flex-col lg:my-20 md:my-20 sm:my-10 xs:my-10 mx-5 py-8 items-center justify-center bg-secondary rounded-[10px]">
 
       <h2 className="py-5 text-3xl font-bold mb-4 text-center text-white">How It Works</h2>
       <p className="lg:w-[60%] md:w-[70%] sm:w-[80%] ss:w-[80%] px-10 text-dimWhite mb-8 text-center font-light">{loremIpsum}</p>

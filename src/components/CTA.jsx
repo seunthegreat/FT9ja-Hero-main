@@ -19,10 +19,10 @@ const CTA = () => {
   return (
     <section className={``}>
       <div 
-        className="flex flex-col container mx-auto px-4 py-8 items-center justify-center">
+        className="flex flex-col container mx-auto px-0 py-8 items-center justify-center">
         <h2 className="py-5 text-3xl font-bold mb-4 text-center">Become an Ambassador</h2>
         <p className="md:w-[60%] lg:w-[60%] sm:w-[70%] ss:w-[80%] mb-8 font-light text-center">{loremIpsum}</p>
-        <div className='mb-10 md:w-[50%] lg:w-[50%] xs:w-[95%]'>
+        <div className='mb-10 md:w-[50%] lg:w-[50%] xs:w-[100%]'>
           <form onSubmit={handleSubmit} className={`flex md:flex-row lg:flex-row sm:flex-row ss:flex-row xs:flex-col w-full`}>
             <input 
               type="email" 

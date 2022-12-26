@@ -7,6 +7,7 @@ import { BsPlusLg } from 'react-icons/bs';
 import { useRef } from 'react';
 import { faqs } from '../constants';
 
+
 const Faqs = () => {
   const buttonRefs = useRef([]);
   const openedRef = useRef(null);
