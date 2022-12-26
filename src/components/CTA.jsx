@@ -21,17 +21,17 @@ const CTA = () => {
       <div 
         className="flex flex-col container mx-auto px-4 py-8 items-center justify-center">
         <h2 className="py-5 text-3xl font-bold mb-4 text-center">Become an Ambassador</h2>
-        <p className="w-[60%] mb-8 text-center">{loremIpsum}</p>
-        <div className='mb-10 w-[50%]'>
-          <form onSubmit={handleSubmit} className={`flex flex-row w-full`}>
+        <p className="md:w-[60%] lg:w-[60%] sm:w-[70%] ss:w-[80%] mb-8 font-light text-center">{loremIpsum}</p>
+        <div className='mb-10 md:w-[50%] lg:w-[50%] xs:w-[95%]'>
+          <form onSubmit={handleSubmit} className={`flex md:flex-row lg:flex-row sm:flex-row ss:flex-row xs:flex-col w-full`}>
             <input 
               type="email" 
               value={email} 
               onChange={handleChange} 
-              className={`w-[100%] border px-5 py-4`} 
+              className={`w-[100%] border px-5 py-3 ss:mb-0 sm:mb-0 xs:mb-3`} 
               placeholder={'Enter your email address'}
             />
-           <Button title="Register" small/>
+           <Button title="Register" small square/>
         </form>
         </div>
       </div>
