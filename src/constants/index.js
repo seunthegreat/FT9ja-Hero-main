@@ -11,7 +11,7 @@ export const navLinks = [
   },
   {
     id: "createAccount",
-    title: "Create an Account",
+    title: "Create Account",
   },
 ];
 
