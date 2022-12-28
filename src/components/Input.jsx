@@ -8,8 +8,8 @@ const Input = ({ label, id, type, placeholder }) => {
         {label}
       </label>
       <input 
-        className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none 
-          focus:shadow-outline  border px-5 py-3 ss:mb-0 sm:mb-0 xs:mb-3" 
+        className="border rounded w-full px-3 text-gray-700 focus:outline-none 
+          focus:shadow-outline  border px-5 py-4 ss:mb-0 sm:mb-0 xs:mb-3" 
         id={id} 
         type={type} 
         placeholder={placeholder}

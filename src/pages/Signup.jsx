@@ -21,7 +21,7 @@ const Signup= () => {
           className="flex flex-col container mx-auto px-4 py-8 items-center justify-center">
           <h2 className={`py-4 ${text.heading} font-bold text-center`}>Create an Account</h2>
         </div>
-        <div className="bg-white px-8 pt-6 pb-8 mb-4 w-[60%]">
+        <div className="bg-white px-8 pt-6 pb-8 mb-4 md:w-[70%] sm:w-[80%] ss:w-[90%] xs:w-[100%]">
           <div className="absolute top-10 left-5 hidden md:block">
             <Link to="/">
               <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
@@ -39,7 +39,7 @@ const Signup= () => {
                 <input className="form-checkbox mr-1" type="checkbox" /> Remember me
               </label>
             </div>
-            <div className="flex flex-col items-center justify-between mt-20">
+            <div className="flex flex-col items-center justify-between xs:mt-10">
               <Button styles="mb-2 lg:mb-0 md:mb-0 sm:mb-0 ss:mb-0 xs:mb-3 w-full" title="Create account"/>
               <div className='flex flex-row w-full mt-5 items-center justify-center'>
                 <p className={`w-[60%] mb-8 text-center font-light ${text.small}`}>

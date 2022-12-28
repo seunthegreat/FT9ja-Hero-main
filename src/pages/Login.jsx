@@ -23,7 +23,7 @@ const Login = () => {
           <p className={`w-[60%] md:w-[70%] sm:w-[60%] ss:w-[70%] xs:w-[80%] lg:mb-8 xs:mb-0 
           text-center font-light ${text.normal}`}>Kindly fill in your details below</p>
         </div>
-        <div className="bg-white px-8 pt-6 pb-8 mb-4 md:w-[70%] sm:w-[60%] ss:w-[70%] xs:w-[80%]">
+        <div className="bg-white px-8 pt-6 pb-8 mb-4 md:w-[70%] sm:w-[80%] ss:w-[90%] xs:w-[100%]">
           <div className="absolute top-10 left-5 hidden md:block">
             <Link to="/">
               <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
@@ -42,7 +42,7 @@ const Login = () => {
                 Forgot Password?
               </Link>
             </div>
-            <div className="flex items-center flex-col justify-between mt-20">
+            <div className="flex items-center flex-col justify-between  xs:mt-10">
               <Button styles="mb-2 lg:mb-0 md:mb-0 sm:mb-0 ss:mb-0 xs:mb-3 w-full" title="Login"/>
               <div className='flex flex-row w-full mt-5 items-center justify-center'>
                 <p className={`w-[60%] mb-8 text-center font-light ${text.small}`}>
