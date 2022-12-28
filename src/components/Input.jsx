@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { text } from '../style';
 
 const Input = ({ label, id, type, placeholder }) => {
   return (
     <div className='mb-5'>
-      <label className="block text-gray-700 text-sm font-bold mb-2" for="email">
+      <label className={`block text-gray-700 text-sm font-bold mb-2 ${text.normal}`}>
         {label}
       </label>
       <input 

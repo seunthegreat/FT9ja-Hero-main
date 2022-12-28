@@ -28,5 +28,11 @@ const styles = {
   
     sectionInfo: `flex-1 ${styles.flexStart} flex-col`,
   };
+
+  export const text = {
+    normal: "lg:text-sm xs:text-xs",
+    small: "text-xs lg:text-ss",
+    heading: "lg:text-4xl xs:text-3xl"
+  }
   
   export default styles;
