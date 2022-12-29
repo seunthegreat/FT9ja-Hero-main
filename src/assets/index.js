@@ -28,7 +28,15 @@ import bg2 from "./bg2.jpg";
 import handshake from "./handshake.svg";
 import earn from "./earn.svg";
 import gifts from "./gifts.svg";
-import trip from "./trip.svg"
+import trip from "./trip.svg";
+import Home from "./Home.svg";
+import Quiz from "./Quiz.svg";
+import Learning from "./Learning.svg";
+import Activities from "./Activities.svg";
+import Advocate from "./Advocate.svg";
+import Benefit from "./Benefit.svg";
+import Profile from "./Profile.svg";
+import Logout from "./Logout.svg";
 
 export {
   airbnb,
@@ -61,5 +69,13 @@ export {
   handshake,
   earn,
   gifts,
-  trip
+  trip,
+  Home,
+  Quiz,
+  Learning,
+  Activities,
+  Advocate,
+  Benefit,
+  Profile,
+  Logout
 };

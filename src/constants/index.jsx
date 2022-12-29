@@ -1,4 +1,8 @@
-import { handshake, earn, send, trip, gifts } from "../assets";
+import { RxDashboard } from "react-icons/rx";
+import { MdOutlineSubscriptions } from 'react-icons/md';
+import { GrTransaction } from 'react-icons/gr';
+import { handshake, earn, send, trip, gifts, Home, Quiz, Learning,
+  Activities, Advocate, Benefit, Profile, Logout } from "../assets";
 
 export const navLinks = [
   {
@@ -251,3 +255,50 @@ export const faqs = [
       ],
   },
 ];
+
+export const SidebarLinks = [
+  {
+    title: ' ',
+    links: [
+      {
+        name: 'Overview',
+        route: 'overview',
+        icon: <img src={Home} alt="Overview" className="w-[23px] h-[23px]" />
+      },
+      {
+        name: 'Quiz',
+        route: 'quiz',
+        icon: <img src={Quiz} alt="quiz" className="w-[23.71px] h-[28.05px]" />
+      },
+      {
+        name: 'Learning',
+        route: 'learning', 
+        icon: <img src={Learning} alt="learning" className="w-[23.2px] h-[22.9px]" />
+      },
+      {
+        name: 'Activities',
+        route: 'activities',
+        icon: <img src={Activities} alt="activities" className="w-[20px] h-[18px]" />
+      },
+      {
+        name: 'Advocate',
+        route: 'advocate',
+        icon: <img src={Advocate} alt="advocate" className="w-[16px] h-[18px]" />
+      },
+      {
+        name: 'Benefits',
+        route: 'benefits',
+        icon: <img src={Benefit} alt="benefits" className="w-[18.37px] h-[19px]" />
+      },
+      {
+        name: 'Profile',
+        route: 'profile',
+        icon: <img src={Profile} alt="profile" className="w-[16px] h-[18px]" />
+      },
+      {
+        name: 'Log out',
+        icon: <img src={Logout} alt="logout" className="w-[18px] h-[18px]" />
+      },
+    ],
+  },
+]

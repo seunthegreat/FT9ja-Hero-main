@@ -5,6 +5,7 @@ import Hero from "./Hero";
 import Benefits from "./Benefits";
 import HowItWorks from "./HowItWorks";
 import Faqs from "./Faqs";
+import Sidebar from "./Sidebar"
 
 export {
   Navbar,
@@ -13,5 +14,6 @@ export {
   Hero,
   Benefits,
   HowItWorks,
-  Faqs
+  Faqs,
+  Sidebar
 };

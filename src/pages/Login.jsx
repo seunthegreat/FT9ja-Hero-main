@@ -43,7 +43,9 @@ const Login = () => {
               </Link>
             </div>
             <div className="flex items-center flex-col justify-between  xs:mt-10">
-              <Button styles="mb-2 lg:mb-0 md:mb-0 sm:mb-0 ss:mb-0 xs:mb-3 w-full" title="Login"/>
+              <Link to="/dashboard" className='flex w-full'>
+                <Button styles="mb-2 lg:mb-0 md:mb-0 sm:mb-0 ss:mb-0 xs:mb-3 w-full" title="Login"/>
+              </Link>
               <div className='flex flex-row w-full mt-5 items-center justify-center'>
                 <p className={`w-[60%] mb-8 text-center font-light ${text.small}`}>
                   Don't have an account ? 
