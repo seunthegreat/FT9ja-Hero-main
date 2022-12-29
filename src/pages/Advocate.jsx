@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStateContext } from '../context/ContextProvider';
-import { Sidebar } from '../components';
+import { Sidebar, DNavbar } from '../components';
 
 const Advocate = () => {
   const { activeMenu } = useStateContext();
@@ -20,7 +20,9 @@ const Advocate = () => {
         `dark:bg-main-bg bg-main-bg min-h-screen w-full 
             ${activeMenu ? 'md:ml-72' : 'flex-2'}`}
       >
-        Advocate
+         <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+          <DNavbar route={"Advocate"}/>
+        </div>
       </div>
     </div>
   )

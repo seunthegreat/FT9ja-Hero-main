@@ -37,6 +37,7 @@ import Advocate from "./Advocate.svg";
 import Benefit from "./Benefit.svg";
 import Profile from "./Profile.svg";
 import Logout from "./Logout.svg";
+import rightArrow from "./right-arrow.svg"
 
 export {
   airbnb,
@@ -77,5 +78,6 @@ export {
   Advocate,
   Benefit,
   Profile,
-  Logout
+  Logout,
+  rightArrow
 };

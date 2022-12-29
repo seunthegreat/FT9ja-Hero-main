@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStateContext } from '../context/ContextProvider';
-import { Sidebar } from '../components';
+import { Sidebar, DNavbar } from '../components';
 
 const Learning = () => {
   const { activeMenu } = useStateContext();
@@ -20,7 +20,9 @@ const Learning = () => {
         `dark:bg-main-bg bg-main-bg min-h-screen w-full 
             ${activeMenu ? 'md:ml-72' : 'flex-2'}`}
       >
-        Learning
+        <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+          <DNavbar route={"Learning"}/>
+        </div>
       </div>
     </div>
   )

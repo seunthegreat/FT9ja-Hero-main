@@ -286,9 +286,9 @@ export const SidebarLinks = [
         icon: <img src={Advocate} alt="advocate" className="w-[16px] h-[18px]" />
       },
       {
-        name: 'Benefits',
-        route: 'benefits',
-        icon: <img src={Benefit} alt="benefits" className="w-[18.37px] h-[19px]" />
+        name: 'Benefit',
+        route: 'benefit',
+        icon: <img src={Benefit} alt="benefit" className="w-[18.37px] h-[19px]" />
       },
       {
         name: 'Profile',
