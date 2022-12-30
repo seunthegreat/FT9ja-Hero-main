@@ -31,7 +31,7 @@ const DNavbar = ({route}) => {
   }, []);
 
   useEffect(() => {
-    if(screenSize <= 900) return setActiveMenu(false);
+    if(screenSize <= 1060) return setActiveMenu(false);
     setActiveMenu(true);
 
   }, [screenSize]);
