@@ -39,6 +39,7 @@ import Profile from "./Profile.svg";
 import Logout from "./Logout.svg";
 import rightArrow from "./right-arrow.svg";
 import Document from "./Document.svg";
+import step1 from "./step-1.svg"
 
 export {
   airbnb,
@@ -81,5 +82,6 @@ export {
   Profile,
   Logout,
   rightArrow, 
-  Document
+  Document,
+  step1
 };

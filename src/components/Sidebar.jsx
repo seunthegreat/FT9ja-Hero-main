@@ -10,7 +10,7 @@ const Sidebar = () => {
   const { activeMenu, setActiveMenu, screenSize} =  useStateContext();
 
   const handleCloseSideBar = () => {
-    if (activeMenu && screenSize <= 900) setActiveMenu(false)
+    if (activeMenu && screenSize <= 1060) setActiveMenu(false)
   }
   
   const activeLink = 'mb-5 bg-[#E8F4EA] rounded-l-lg flex items-center gap-5 pl-4 pt-3 pb-2.5 text-black text-md ml-2';

@@ -12,7 +12,7 @@ const Advocate = () => {
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
   return (
-    <div className='flex relative z-0' {...getRootProps()}>
+    <div className='flex relative' {...getRootProps()}>
       {activeMenu ? (
         <div className='w-72 fixed dark:bg-secondary-dark-bg bg-white'>
           <Sidebar />
@@ -37,7 +37,7 @@ const Advocate = () => {
               <p className="md:w-[60%] lg:w-[60%] sm:w-[70%] ss:w-[80%] xs:w-[70%] mb-8 xs:text-xs lg:text-sm font-light text-center">
                 Send proof of advocacy through images and videos to maintain advocacy status and earn rewards
               </p>
-                {/* <input {...getInputProps()} /> */}
+                <input {...getInputProps()} />
                 <div className='h-[60%] w-[90%] xl:h-[70%] lg:w-[60%] md:w-[70%] lg:h-[60%] xs:h-[50%] bg-white p-5 overflow-hidden flex flex-col justify-center'>
                   <h2 className="text-xl font-normal md:text-xl xs:text-lg">Upload and attach files</h2>
                   <p className='text-gray-500 text-xs sm:mt-4 xs:mt-1'>Upload and attach proof of advocacy</p>
