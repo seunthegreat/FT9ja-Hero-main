@@ -71,7 +71,7 @@ const Overview = () => {
   return (
     <div className='flex relative'>
       {activeMenu ? (
-        <div className='w-72 fixed dark:bg-secondary-dark-bg bg-white'>
+        <div className='z-10 w-72 fixed dark:bg-secondary-dark-bg bg-white'>
           <Sidebar />
         </div>
       ) : (
