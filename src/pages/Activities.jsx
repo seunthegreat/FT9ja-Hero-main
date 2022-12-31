@@ -7,11 +7,11 @@ const Activities = () => {
   return (
     <div className='flex relative'>
       {activeMenu ? (
-        <div className='w-72 fixed dark:bg-secondary-dark-bg bg-white'>
+        <div className='z-20 w-72 fixed dark:bg-secondary-dark-bg bg-white'>
           <Sidebar />
         </div>
       ) : (
-        <div className='w-0 dark:bg-secondary-dark-bg'>
+        <div className=' w-0 dark:bg-secondary-dark-bg'>
           <Sidebar />
         </div>
       )
@@ -20,7 +20,7 @@ const Activities = () => {
         `dark:bg-main-bg bg-main-bg min-h-screen w-full 
             ${activeMenu ? 'md:ml-72' : 'flex-2'}`}
       >
-        <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+        <div className='z-10 fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
           <DNavbar route={"Activities"}/>
         </div>
       </div>

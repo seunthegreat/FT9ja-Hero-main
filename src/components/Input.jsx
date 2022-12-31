@@ -18,4 +18,4 @@ const Input = ({ label, id, type, placeholder }) => {
   )
 }
 
-export default Input
+export default Input;
