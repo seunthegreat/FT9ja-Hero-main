@@ -7,7 +7,6 @@ import { Home, rightArrow } from '../assets';
 const NavButton = ({ title, customFunc, icon, color, dotColor, svg }) => (
   <>
     <button 
-      type='button' 
       onClick={customFunc}
       style={{ color }}
       className="relative text-xl rounded-full p-3 hover:bg-light-gray"
@@ -36,17 +35,16 @@ const DNavbar = ({route}) => {
 
   }, [screenSize]);
   return (
-    <div className='mx-6 mt-5 xs:mx-5 rounded bg-white shadow flex justify-between p-2 md:mx-6 relative'>
+    <div className='mx-6 md:mt-5 sm:mt-5 sm:mt-0 xs:mt-0 xs:mx-0 xs:mx-5 sm:mx-0 md:rounded bg-white shadow flex justify-between p-2 md:mx-6 relative'>
       <div className='flex flex-row items-center justify-center'>
         <NavButton 
           title="Menu" 
           customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
           color="gray"
-          svg
-          icon={Home}
+          icon={<AiOutlineMenu style={{color:"gray"}} />}
         />
        <img src={rightArrow} className="w-[18px] h-[12px] mr-2" /> 
-       <p className='text-xs'>{route}</p>
+         <p className='text-xs'>{route}</p>
       </div>
         
         <div className='flex'>
