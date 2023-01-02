@@ -35,7 +35,7 @@ const DNavbar = ({route}) => {
 
   }, [screenSize]);
   return (
-    <div className='mx-6 md:mt-5 sm:mt-5 sm:mt-0 xs:mt-0 xs:mx-0 xs:mx-5 sm:mx-0 md:rounded bg-white shadow flex justify-between p-2 md:mx-6 relative'>
+    <div className='mx-6 md:mt-5 sm:mt-5 sm:mt-0 xs:mt-0 xs:mx-0  sm:mx-0 md:rounded bg-white shadow flex justify-between p-2 md:mx-6 relative'>
       <div className='flex flex-row items-center justify-center'>
         <NavButton 
           title="Menu" 

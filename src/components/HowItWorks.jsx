@@ -1,6 +1,6 @@
 import React from 'react';
 import {bg2} from "../assets";
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
 
 
 const HowItWorks = () => {

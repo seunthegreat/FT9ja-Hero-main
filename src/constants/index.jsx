@@ -301,4 +301,19 @@ export const SidebarLinks = [
       },
     ],
   },
-]
+];
+
+//--Profile information--//
+export const user = {
+  firstName : "Samuel",
+  lastName : "Abilawon",
+  email : "seun.thedeveloper@gmail.com",
+  phoneNumber : "+2348168051751"
+};
+
+export const profileFields = [
+  {id: 'fName', label: "First Name",},
+  {id: 'lName', label: "Last Name"},
+  {id: 'email', label: "Email address"},
+  {id: 'phone', label: "Phone number"}
+];

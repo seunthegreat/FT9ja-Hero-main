@@ -43,6 +43,7 @@ import step1 from "./step-1.svg";
 import profileBanner from "./profile-banner.svg";
 import Edit from "./edit.svg";
 import Copy from "./copy.svg";
+import QuizBG from "./Quiz-bg.svg";
 
 export {
   airbnb,
@@ -89,5 +90,6 @@ export {
   step1,
   profileBanner,
   Edit,
-  Copy
+  Copy,
+  QuizBG
 };

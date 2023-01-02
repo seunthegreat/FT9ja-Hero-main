@@ -4,20 +4,7 @@ import { Sidebar, DNavbar } from '../components';
 import { profileBanner, Edit, people01, people02 } from '../assets';
 import { text, layout } from '../style';
 import AffiliateLink from '../components/AffiliateLink';
-
-const user = {
-  firstName : "Samuel",
-  lastName : "Abilawon",
-  email : "seun.thedeveloper@gmail.com",
-  phoneNumber : "+2348168051751"
-};
-
-const profileFields = [
-  {id: 'fName', label: "First Name",},
-  {id: 'lName', label: "Last Name"},
-  {id: 'email', label: "Email address"},
-  {id: 'phone', label: "Phone number"}
-];
+import { profileFields, user } from '../constants';
 
 const handleData = (id) => {
   if (id === 'fName') return user.firstName;
@@ -67,7 +54,7 @@ const Profile = () => {
         <div className='fixed md:static bg-main-bg z-10 dark:bg-main-dark-bg navbar w-full'>
           <DNavbar route={"Profile"}/>
         </div>
-        <div className='flex flex-col px-10 xs:px-5 sm:mt-20 ss:mt-10 xs:mt-5 md:mt-10'>
+        <div className='flex flex-col lg:px-10 xs:px-5 sm:mt-20 ss:mt-10 xs:mt-5 md:mt-10'>
           <h2 className="lg:mt-0 hidden sm:block ss:mt-5 xs:mt-10 lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl font-bold">
             Profile
           </h2>
