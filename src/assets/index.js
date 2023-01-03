@@ -44,6 +44,8 @@ import profileBanner from "./profile-banner.svg";
 import Edit from "./edit.svg";
 import Copy from "./copy.svg";
 import QuizBG from "./Quiz-bg.svg";
+import benefitOne from "./benefit-1.jpg";
+import benefitTwo from "./benefit-2.jpg";
 
 export {
   airbnb,
@@ -91,5 +93,7 @@ export {
   profileBanner,
   Edit,
   Copy,
-  QuizBG
+  QuizBG,
+  benefitOne,
+  benefitTwo
 };

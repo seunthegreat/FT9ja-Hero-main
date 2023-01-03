@@ -7,10 +7,11 @@ module.exports = {
       colors: {
         primary: "white",
         secondary: "#246700",
+        lightGreen: "#E8F4EA",
         button: "#359602",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
-        dimGreen: "rgba(36, 103, 0, 0.1)",
+        dimGreen: "rgba(53, 150, 2, 0.03)",
       },
       backgroundColor: {
         'custom-color': 'rgba(36, 103, 0, 0.1)',

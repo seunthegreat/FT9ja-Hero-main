@@ -2,7 +2,7 @@ import { RxDashboard } from "react-icons/rx";
 import { MdOutlineSubscriptions } from 'react-icons/md';
 import { GrTransaction } from 'react-icons/gr';
 import { handshake, earn, send, trip, gifts, Home, Quiz, Learning,
-  Activities, Advocate, Benefit, Profile, Logout } from "../assets";
+  Activities, Advocate, Benefit, Profile, Logout, benefitOne, benefitTwo } from "../assets";
 
 export const navLinks = [
   {
@@ -316,4 +316,59 @@ export const profileFields = [
   {id: 'lName', label: "Last Name"},
   {id: 'email', label: "Email address"},
   {id: 'phone', label: "Phone number"}
+];
+
+//--Benefits--//
+
+export const ambassadorshipBenefits = [
+  {
+    benefit: 'Exclusive access to trading tools and resources',
+    date: '2020-01-01',
+    image: benefitOne
+  },
+  {
+    benefit: 'Invitation to monthly webinars with industry experts',
+    date: '2020-03-01',
+    image: benefitTwo
+  },
+  {
+    benefit: 'Discount on trading fees',
+    date: '2020-06-01',
+    image: benefitOne
+  },
+  {
+    benefit: 'Personalized one-on-one coaching with a senior trader',
+    date: '2020-09-01',
+    image: benefitTwo
+  },
+  {
+    benefit: 'Free subscription to a premium market analysis newsletter',
+    date: '2020-12-01',
+    image: benefitOne
+  },
+  {
+    benefit: 'Priority support from a dedicated customer service team',
+    date: '2021-03-01',
+    image: benefitTwo
+  },
+  {
+    benefit: 'Exclusive invitation to in-person events and meetups',
+    date: '2021-06-01',
+    image: benefitOne
+  },
+  {
+    benefit: 'Discount on trading education courses',
+    date: '2021-09-01',
+    image: benefitTwo
+  },
+  {
+    benefit: 'Opportunity to participate in beta testing of new trading technologies',
+    date: '2022-01-01',
+    image: benefitOne
+  },
+  {
+    benefit: `Recognition on the company's website as a top-tier trading ambassador`,
+    date: '2022-03-01',
+    image: benefitTwo
+  }
 ];
