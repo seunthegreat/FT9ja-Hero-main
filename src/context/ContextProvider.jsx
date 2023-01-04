@@ -6,10 +6,17 @@ const initialState = {
   activeMenu: true
 };
 
+const learningState = {
+  showTip: true,
+}
+
 export const ContextProvider = ({children}) => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [isClicked, setIsClicked] = useState(initialState);
   const [screenSize, setScreenSize] = useState(undefined);
+
+  //--Learning--//
+  const [showTip, setShowTip] = useState(learningState.showTip);
 
   const handleClick = (clicked) => {
     setIsClicked({...initialState, [clicked]: true});
@@ -26,6 +33,10 @@ export const ContextProvider = ({children}) => {
           handleClick, 
           screenSize, 
           setScreenSize,
+
+          //--Learning--//
+          showTip,
+          setShowTip
         }
       }
     >
