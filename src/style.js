@@ -24,7 +24,8 @@ const styles = {
     sectionImgReverse: `flex-1 flex ${styles.flexCenter} md:mr-10 mr-0 md:mt-0 mt-10 relative`,
     sectionImg: `flex-1 flex ${styles.flexCenter} md:ml-10 ml-0 md:mt-0 mt-10 relative`,
     sectionItems: `flex-1 flex ${styles.flexCenter} md:ml-10 ml-0 md:mt-0 mt-10 relative 
-      grid  grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 sm:grid-cols-2 ss:grid-cols-2 xs:grid-cols-1 gap-4`,
+      grid  grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 sm:grid-cols-2 
+      ss:grid-cols-2 xs:grid-cols-1 xs:grid-rows-reverse gap-4`,
   
     sectionInfo: `flex-1 ${styles.flexStart} flex-col`,
   };

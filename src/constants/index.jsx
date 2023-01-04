@@ -322,53 +322,112 @@ export const profileFields = [
 
 export const ambassadorshipBenefits = [
   {
-    benefit: 'Exclusive access to trading tools and resources',
+    title: 'Exclusive access to trading tools and resources',
     date: '2020-01-01',
     image: benefitOne
   },
   {
-    benefit: 'Invitation to monthly webinars with industry experts',
+    title: 'Invitation to monthly webinars with industry experts',
     date: '2020-03-01',
     image: benefitTwo
   },
   {
-    benefit: 'Discount on trading fees',
+    title: 'Discount on trading fees',
     date: '2020-06-01',
     image: benefitOne
   },
   {
-    benefit: 'Personalized one-on-one coaching with a senior trader',
+    title: 'Personalized one-on-one coaching with a senior trader',
     date: '2020-09-01',
     image: benefitTwo
   },
   {
-    benefit: 'Free subscription to a premium market analysis newsletter',
+    title: 'Free subscription to a premium market analysis newsletter',
     date: '2020-12-01',
     image: benefitOne
   },
   {
-    benefit: 'Priority support from a dedicated customer service team',
+    title: 'Priority support from a dedicated customer service team',
     date: '2021-03-01',
     image: benefitTwo
   },
   {
-    benefit: 'Exclusive invitation to in-person events and meetups',
+    title: 'Exclusive invitation to in-person events and meetups',
     date: '2021-06-01',
     image: benefitOne
   },
   {
-    benefit: 'Discount on trading education courses',
+    title: 'Discount on trading education courses',
     date: '2021-09-01',
     image: benefitTwo
   },
   {
-    benefit: 'Opportunity to participate in beta testing of new trading technologies',
+    title: 'Opportunity to participate in beta testing of new trading technologies',
     date: '2022-01-01',
     image: benefitOne
   },
   {
-    benefit: `Recognition on the company's website as a top-tier trading ambassador`,
+    title: `Recognition on the company's website as a top-tier trading ambassador`,
     date: '2022-03-01',
     image: benefitTwo
   }
+];
+
+//--Activities --//
+
+export const activities = [
+  {
+    title: 'Organize a workshop on currency trading strategies',
+    date: 'January 10, 2023',
+    id: 1,
+    image: 'https://pixabay.com/photos/workshop-team-meeting-business-847940/'
+  },
+  {
+    title: 'Host a webinar on the economic factors that impact forex markets',
+    date: 'February 5, 2023',
+    id: 2,
+    image: 'https://pixabay.com/photos/webinar-online-education-conference-3577343/'
+  },
+  {
+    title: 'Conduct a seminar on risk management in forex trading',
+    date: 'March 15, 2023',
+    id: 3,
+    image: 'https://pixabay.com/photos/seminar-education-teaching-training-3693238/'
+  },
+  {
+    title: 'Lead a discussion group on technical analysis techniques',
+    date: 'April 10, 2023',
+    id: 4,
+    image: 'https://pixabay.com/photos/discussion-business-meeting-team-1245776/'
+  },
+  {
+    title: 'Host a networking event for forex traders and investors',
+    date: 'May 20, 2023',
+    id: 5,
+    image: 'https://pixabay.com/photos/networking-business-people-meeting-1245776/'
+  },
+  {
+    title: 'Collaborate with local schools or universities to promote financial literacy and education',
+    date: 'June 5, 2023',
+    id: 6,
+    image: 'https://pixabay.com/photos/university-students-study-education-1245776/'
+  },
+  {
+    title: 'Participate in online forums and social media groups to provide guidance and support to traders',
+    date: 'July 15, 2023',
+    id: 7,
+    image: 'https://pixabay.com/photos/social-media-internet-communication-1245776/'
+  },
+  {
+    title: 'Attend industry conferences and events to stay up-to-date on the latest developments in the forex market',
+    date: 'August 10, 2023',
+    id: 8,
+    image: 'https://pixabay.com/photos/conference-room-business-meeting-1245776/'
+  },
+  {
+    title: 'Create educational content, such as videos or blog posts, to share knowledge and insights with traders',
+    date: 'September 5, 2023',
+    id: 9,
+    image: 'https://pixabay.com/photos/education-learning-school-teaching-1245776/'
+  },
 ];

@@ -24,7 +24,7 @@ const ListCard = ({data}) => (
     </div>
     <div className='w-full flex flex-col justify-center'>
       <h4 className="text-black text-md mb-1">
-      {data.benefit}
+      {data.title}
       </h4>
       <div className='flex flex-row justify-between items-center'>
         <p className="font-normal text-gray-500 text-xs leading-[24px] mb-1">

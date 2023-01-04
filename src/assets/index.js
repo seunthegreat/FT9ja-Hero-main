@@ -46,6 +46,7 @@ import Copy from "./copy.svg";
 import QuizBG from "./Quiz-bg.svg";
 import benefitOne from "./benefit-1.jpg";
 import benefitTwo from "./benefit-2.jpg";
+import trackBenefits from "./trackBenefits.svg";
 
 export {
   airbnb,
@@ -95,5 +96,6 @@ export {
   Copy,
   QuizBG,
   benefitOne,
-  benefitTwo
+  benefitTwo,
+  trackBenefits
 };

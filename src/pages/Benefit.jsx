@@ -8,6 +8,7 @@ import Button from '../components/Button';
 import MiniStatsCard from '../components/MiniStatsCard';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { trackBenefits } from '../assets';
 
 const metricFields = [
   {id: 'total-comm', label: "Total Commission", iconColor: "bg-[#3596021A]", type: 'money'},
@@ -20,16 +21,16 @@ const referrals = 2;
 
 const message = {
   custom : `Refer ${4-referrals} more persons and earn N40,000 monthly stipend`,
-  oneLeft : "Refer one more person to earn your monthly stipend of N40,000"
-}
+  oneLeft : "Refer one more person to earn your monthly stipend of N40,000",
+  trackBenefits: "Track all you benefits earned and stipend progress here!"
+};
 
 const calculatePercentage = (referrals) => {
   if (referrals == 1) return 25;
   if (referrals == 2) return 50;
   if (referrals == 3) return 75;
   if (referrals == 4) return 100;
-}
-
+};
 
 const Benefits = () => {
   const { activeMenu } = useStateContext();
@@ -58,7 +59,7 @@ const Benefits = () => {
             Benefits
           </h2>
 
-          <div className={`${layout.sectionItems} flex-col mt-8 md:mt-8 md:ml-0 `}>
+          <div className={`${layout.sectionItems} mt-8 md:mt-8 md:ml-0`}>
             <div className='border p-5 rounded-[10px] mb-10'>
               {ambassadorshipBenefits.map((item, index) => (
                 <ListCard data={item} key={index} />
@@ -66,13 +67,24 @@ const Benefits = () => {
             </div>
 
             <div className='h-full'>
+              <div className='bg-[#359602] p-4 rounded mb-3'>
+                <div className='flex flex-row justify-between'>
+                  <div>
+                    <p className={`${text.subHeading} text-white`}>Track Benefits</p>
+                    <p className={`${text.body} mt-2 mb-3 w-[90%] xl:w-full text-slate-200`}>{message.trackBenefits}</p>
+                  </div>
+                  <div className='w-[150px] h-[100px] hidden sm:block'>
+                    <img src={trackBenefits}/>
+                  </div>
+                </div>
+              </div>
               <div className='bg-dimGreen p-4 rounded'>
-                <div className='flex flex-row'>
+                <div className='flex md:flex-row lg:flex-row xl:flex-row justify-between sm:flex-col ss:flex-col'>
                   <div>
                     <p className={`${text.subHeading}`}>Stipend Commission</p>
                     <p className={`${text.body} mt-2 mb-3 w-[80%]`}>{referrals !== 3 ?  message.custom : message.oneLeft}</p>
                   </div>
-                  <div className='w-[100px] h-[100px]'>
+                  <div className='w-[100px] h-[100px] sm:my-5 ss:my-5'>
                     <CircularProgressbar 
                       value={calculatePercentage(referrals)} 
                       text={`${calculatePercentage(referrals)}%`} 
