@@ -13,7 +13,6 @@ const Activities = () => {
   const inputRef = useRef(null);
   const {getRootProps, getInputProps, isDragActive } = useDropzone({noClick: true});
   
-
   //--function--//
   const handleClick = () => {
     inputRef.current.click();

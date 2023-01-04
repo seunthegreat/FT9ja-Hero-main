@@ -431,3 +431,44 @@ export const activities = [
     image: 'https://pixabay.com/photos/education-learning-school-teaching-1245776/'
   },
 ];
+
+//--Learning--//
+
+export const forexVideos = [
+  {
+    id: 1,
+    title: "Introduction to Forex Prop Trading",
+    link: "https://www.youtube.com/watch?v=z7538iNe2Pw&t=46s",
+    category: "Basics"
+  },
+  {
+    id: 2,
+    title: "Understanding Forex Market Trends",
+    link: "https://www.youtube.com/watch?v=dszHdcMG7d4",
+    category: "Technical Analysis"
+  },
+  {
+    id: 3,
+    title: "Risk Management",
+    link: "https://www.youtube.com/watch?v=s8wC6U7QJmQ",
+    category: "Risk Management"
+  },
+  {
+    id: 4,
+    title: "Using Technical Analysis",
+    link: "https://www.youtube.com/watch?v=lGhFX4Pwj6Y",
+    category: "Technical Analysis"
+  },
+  {
+    id: 5,
+    title: "Fundamental Analysis",
+    link: "https://www.youtube.com/watch?v=aod3cyUEu4k",
+    category: "Fundamental Analysis"
+  },
+  {
+    id: 6,
+    title: "Trading Strategies",
+    link: "https://www.youtube.com/watch?v=ofiGdsNqTP4",
+    category: "Strategies"
+  },
+];

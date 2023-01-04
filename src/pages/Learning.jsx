@@ -1,9 +1,29 @@
 import React from 'react';
 import { useStateContext } from '../context/ContextProvider';
 import { Sidebar, DNavbar } from '../components';
+import VideoCard from '../components/VideoCard';
+import { forexVideos } from '../constants';
+import styles, {layout} from '../style';
+
+
+const Videos = ({activeMenu}) => (
+  <div className='flex flex-col h-screen p-10 xs:px-4 items-center'>
+    {/* <div className='flex flex-col h-1/6 w-full bg-red-200'>
+     
+    </div> */}
+    <div className={`${!activeMenu ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} lg:w-[80%] w-[90%] grid md:grid-cols-3 
+      xs:grid-cols-1 ss:grid-cols-2  mt-8 md:mt-8 md:ml-0`}>
+      {forexVideos.map((item, index) =>(
+        <VideoCard key={index} item={item}/>
+      ))}
+    </div>
+  </div>
+); 
 
 const Learning = () => {
-  const { activeMenu } = useStateContext();
+  const { activeMenu, screenSize } = useStateContext();
+  
+  console.log(screenSize);
   return (
     <div className='flex relative'>
       {activeMenu ? (
@@ -23,6 +43,9 @@ const Learning = () => {
         <div className='z-10 fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
           <DNavbar route={"Learning"}/>
         </div>
+
+        <Videos activeMenu={activeMenu}/>
+
       </div>
     </div>
   )
