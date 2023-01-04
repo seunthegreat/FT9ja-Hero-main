@@ -63,16 +63,16 @@ const Advocate = () => {
 
           <DNavbar route={"Advocate"}/>
 
-          <div className='h-screen lg:p-10 md:p-10 xs:p-0'>
-            <div className='h-[90%] lg:h-[90%] md:h-[100%] xs:h-full bg-gray-100 flex flex-col items-center'>
-              <h2 className="mb-4 mt-10 text-3xl xs:text-xl font-bold text-center">Proof Of Advocacy</h2>
+          <div className='h-screen lg:p-10 md:p-10 sm:p-10 xs:p-10 flex flex-col items-center'>
+            <div className='h-2/3 xl:h-3/4 lg:w-full w-full border rounded-[10px] m-5 sm:m-0 py-10 flex flex-col items-center'>
+              <h2 className="mb-4 text-3xl xs:text-xl font-bold text-center">Proof Of Advocacy</h2>
               <p className="md:w-[60%] lg:w-[60%] sm:w-[70%] ss:w-[80%] xs:w-[70%] mb-8 xs:text-xs lg:text-sm font-light text-center">
                 Send proof of advocacy through images and videos to maintain advocacy status and earn rewards
               </p>
-                <div className='h-[60%] w-[90%] xl:h-[70%] lg:w-[60%] md:w-[70%] lg:h-[60%] xs:h-[50%] bg-white p-5 overflow-hidden flex flex-col justify-center'>
+                <div className='h-[100%] xl:w-[80%] w-[90%] lg:w-[60%] md:w-[100%] p-5 overflow-hidden flex flex-col'>
                   <h2 className="text-xl font-normal md:text-xl xs:text-lg">Upload and attach files</h2>
                   <p className='text-gray-500 text-xs sm:mt-4 xs:mt-1'>Upload and attach proof of advocacy</p>
-                  <div class="m-2 mt-5 border-dashed border-2 border-gray-400 h-[60%] items-center justify-center flex flex-col">
+                  <div class="h-full m-2 mt-5 border-dashed border-2 border-gray-400  items-center justify-center flex flex-col">
                     <img src={Document} alt="upload" className="w-[53.31px] h-[72px] mb-4" />
                     <div className="flex items-center justify-between">
                       {!isDragActive && <button onClick={handleClick} className="underline font-semibold text-gray-500 hover:text-gray-800">Click to Upload </button>}
