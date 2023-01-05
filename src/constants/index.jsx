@@ -472,3 +472,11 @@ export const forexVideos = [
     category: "Strategies"
   },
 ];
+
+export const userProgress = [
+  {id: 1, status: 100},
+  {id: 2, status: 80},
+  {id: 3, status: 20},
+  {id: 4, status: 0},
+  {id:5, status: 0},
+];
