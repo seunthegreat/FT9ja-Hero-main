@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import VideoProgressTracker from './VideoProgressTracker';
 import { userProgress } from '../constants';
+import { text } from '../style';
 
 
 const VideoCard = ({item}) => {
@@ -25,8 +26,8 @@ const VideoCard = ({item}) => {
           height={"100%"} 
         />
       </div>
-      <div className='m-3'>
-        <p>{item.title}</p>
+      <div className='m-3 p-2'>
+        <p className={`${text.normal} font-semibold`}>{item.title}</p>
         <VideoProgressTracker playerRef={playerRef} prevStatus={handleProgressData(item.id)}/>
       </div>
     </div>

@@ -1,50 +1,26 @@
 import React from 'react';
 import { useStateContext } from '../context/ContextProvider';
 import { Sidebar, DNavbar } from '../components';
-import VideoCard from '../components/VideoCard';
-import { forexVideos } from '../constants';
+import Videos from '../components/Videos';
+import { forexVideos, messages, userProgress } from '../constants';
 import styles, {layout, text} from '../style';
 import { GrClose } from "react-icons/gr";
+import VideoTabBar from '../components/VideoTabBar';
+import { getCompletedVideos, getVideosInProgress , completedVideosId, videosInProgressId } from '../functions/Learning';
 
 
-const message = `We've compiled a series of videos to help you understand 
-  the key elements of successful promotional campaigns and how to effectively market our brand. Whether you're new 
-  to the industry or an experienced trader, these resources will provide valuable 
-  insights and tips to help you succeed. We hope you find these videos helpful and informative.`
+const completedId = completedVideosId(userProgress);
+const inProgressId = videosInProgressId(userProgress);
 
-const Videos = ({activeMenu, showTip, setShowTip}) => (
-  <div className='flex flex-col h-screen items-center'>
-    {/* <div className='flex flex-col h-1/6 w-full bg-red-200'>
-     
-    </div> */}
+const all = forexVideos;
+const completed = getCompletedVideos(completedId, forexVideos);
+const inProgress  = getVideosInProgress(inProgressId, forexVideos);
 
-    <div className='flex w-full bg-[#3B7C4E] roundedflex flex-col p-5'>
-      
-      { showTip && 
-        <div className='flex flex-col bg-slate-100 p-5 rounded-[5px]'>
-          <div className='absolute right-10  w-[20px] h-[20px]'>
-            <button
-              onClick={() => setShowTip(false)}
-              className='hover:bg-slate-200 p-1 rounded-full'>
-              <GrClose />
-            </button>
-          </div>
-          <p className={`${text.subHeading} mb-2`}>Welcome to our learning page! </p>
-          <p className={`${text.smallest}`}>{message}</p>
-        </div>
-      }
-    </div>
-    <div className={`${!activeMenu ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} lg:px-5 w-[90%] grid md:grid-cols-3 
-      xs:grid-cols-1 ss:grid-cols-2  mt-8 md:mt-8 md:ml-0`}>
-      {forexVideos.map((item, index) =>(
-        <VideoCard key={index} item={item}/>
-      ))}
-    </div>
-  </div>
-); 
+
+const { learning } = messages;
 
 const Learning = () => {
-  const { activeMenu, screenSize, showTip, setShowTip } = useStateContext();
+  const { activeMenu, showTip, setShowTip, activeTab } = useStateContext();
 
   return (
     <div className='flex relative'>
@@ -69,10 +45,32 @@ const Learning = () => {
           </div>
         </div>
 
+        <div className='flex flex-col w-full bg-[#3B7C4E] lg:pt-0 md:pt-0 sm:pt-10 ss:pt-10 xs:pt-10 px-5'>
+
+          { showTip &&
+            <div className='flex flex-col bg-slate-100 p-5 rounded-[5px] lg:mt-5 md:mt-5 sm:mt-10 ss:mt-10 xs:mt-10'>
+              <div className='absolute right-10  w-[20px] h-[20px]'>
+                <button
+                  onClick={() => setShowTip(false)}
+                  className='hover:bg-slate-200 p-1 rounded-full'>
+                  <GrClose />
+                </button>
+              </div>
+              <p className={`${text.subHeading} mb-2`}>{learning.tip.title}</p>
+              <p className={`${text.smallest}`}>{learning.tip.body}</p>
+            </div>
+          }
+        
+          <VideoTabBar />
+        </div>
+
         <Videos
-          setShowTip={setShowTip}
           activeMenu={activeMenu} 
-          showTip={showTip}/>
+          activeTab={activeTab}
+          all={all}
+          inProgress={inProgress}
+          completed={completed}
+        />
       </div>
 
     </div>

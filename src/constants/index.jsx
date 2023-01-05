@@ -473,10 +473,30 @@ export const forexVideos = [
   },
 ];
 
-export const userProgress = [
-  {id: 1, status: 100},
-  {id: 2, status: 80},
-  {id: 3, status: 20},
-  {id: 4, status: 0},
-  {id:5, status: 0},
+export const tabs = [
+  {id: 0, label: "All", value: 'all'},
+  {id: 1, label: "In Progress", value: 'inProgress'},
+  {id: 2, label: "Completed", value: 'completed'},
 ];
+
+export const userProgress = [
+  { id: 1, status: 100 },
+  { id: 2, status: 80 },
+  { id: 3, status: 20 },
+  { id: 4, status: 0 },
+  { id: 5, status: 0 },
+];
+
+//--General--//
+
+export const messages = {
+  learning: {
+    tip: {
+      title: "Welcome to our learning Page!",
+      body: `We've compiled a series of videos to help you understand 
+        the key elements of successful promotional campaigns and how to effectively market our brand. Whether you're new 
+        to the industry or an experienced trader, these resources will provide valuable 
+        insights and tips to help you succeed. We hope you find these videos helpful and informative.`
+    }
+  }
+}

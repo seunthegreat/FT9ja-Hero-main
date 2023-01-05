@@ -8,6 +8,7 @@ const initialState = {
 
 const learningState = {
   showTip: true,
+  activeTab: 'all', // "all", 'inProgress', 'completed'
 }
 
 export const ContextProvider = ({children}) => {
@@ -17,6 +18,7 @@ export const ContextProvider = ({children}) => {
 
   //--Learning--//
   const [showTip, setShowTip] = useState(learningState.showTip);
+  const [activeTab, setActiveTab] = useState(learningState.activeTab);
 
   const handleClick = (clicked) => {
     setIsClicked({...initialState, [clicked]: true});
@@ -36,7 +38,9 @@ export const ContextProvider = ({children}) => {
 
           //--Learning--//
           showTip,
-          setShowTip
+          setShowTip,
+          activeTab,
+          setActiveTab,
         }
       }
     >
