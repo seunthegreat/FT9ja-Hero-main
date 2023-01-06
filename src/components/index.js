@@ -7,6 +7,10 @@ import HowItWorks from "./HowItWorks";
 import Faqs from "./Faqs";
 import Sidebar from "./Sidebar";
 import DNavbar from "./DashboardNavbar";
+import QuestionCard from "./QuestionCard";
+import QuizResult from "./QuizResult";
+import Recommendations from "./Recommendations";
+import Tips from "./Tips";
 
 export {
   Navbar,
@@ -17,5 +21,9 @@ export {
   HowItWorks,
   Faqs,
   Sidebar,
-  DNavbar
+  DNavbar,
+  QuestionCard,
+  QuizResult,
+  Recommendations,
+  Tips
 };

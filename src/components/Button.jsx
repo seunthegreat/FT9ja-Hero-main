@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = ({styles, title, outline, small, smallest, square}) => (
+const Button = ({styles, textStyle, title, outline, small, smallest, square, onClick}) => (
   <button 
     type="button" 
     className={`
@@ -10,8 +10,10 @@ const Button = ({styles, title, outline, small, smallest, square}) => (
       ${!square ? "rounded-[5px]" : "rounded-[0px]"} 
       ${outline ? "border-gray-400 border" : "bg-button"} 
       font-poppins text-[18px] py-4 px-7  outline-none ${styles} hover:bg-dimGreen hover:text-secondary`
-  }>
-    {title}
+    }
+    onClick={onClick}
+  >
+    <p className={textStyle}>{title}</p>
   </button>
 )
 

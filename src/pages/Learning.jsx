@@ -3,7 +3,7 @@ import { useStateContext } from '../context/ContextProvider';
 import { Sidebar, DNavbar } from '../components';
 import Videos from '../components/Videos';
 import { forexVideos, messages, userProgress } from '../constants';
-import styles, {layout, text} from '../style';
+import { text } from '../style';
 import { GrClose } from "react-icons/gr";
 import VideoTabBar from '../components/VideoTabBar';
 

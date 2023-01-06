@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useStateContext } from '../context/ContextProvider';
-import { Sidebar, DNavbar } from '../components';
+import { Sidebar, DNavbar, QuizResult, QuestionCard } from '../components';
 import { QuizBG } from '../assets';
 import ReactPlayer from 'react-player';
 import handleChoiceClick from '../functions/Quiz/handleChoiceClick';
@@ -46,19 +46,11 @@ const quizQuestions = [
   }
 ];
 
-const choicesLabel = (index) => {
-  if (index == 0 ) return 'A';
-  if ( index == 1 ) return 'B';
-  if ( index == 2 ) return 'C';
-  if ( index == 3 ) return 'D';
-  if ( index == 4 ) return 'E';
-};
-
-
 const Quiz = () => {
 
   const [selectedChoice, setSelectedChoice] = useState([]);
-  const { activeMenu } = useStateContext();
+  const { activeMenu, page } = useStateContext();
+
 
   const handleSelection = (item, number) => {
     const updatedChoice = handleChoiceClick(selectedChoice, item, number);
@@ -87,53 +79,14 @@ const Quiz = () => {
         </div>
 
         <div>
-          <div id="quiz-banner" className='' style={{backgroundImage: QuizBG }}>
-           
-          </div>
-
-          <div id="timer">
-
-          </div>
-
-          <div id="questions" className='flex flex-col xs:p-5 xs:mt-20 lg:mt-0 md:mt-0 p-10 items-center'>
-            {quizQuestions.map((item, number) => (
-              <div className='xl:w-[85%] w-full border rounded-[10px] p-5 py-20 mb-5 flex flex-col items-center'>
-                <div className='xl:w-[70%] lg:w-[85%] w-full'>
-                  <h2 className="text-3xl xs:text-xl font-bold">Question {number+1}</h2>
-
-                  { item.image && 
-                    <div>
-                      <img src={item.image} className="w-200 h-200" />
-                    </div>
-                  }
-
-                  { item.video && 
-                    <div className='my-5 flex flex-col justify-center items-center'>
-                      <div className='rounded-[10px] overflow-hidden lg:w-1/2 md:w-1/2 sm:w-[70%] ss:w-[90%] xs:w-[90%]'>
-                        <ReactPlayer url={item.video} width={"100%"} />
-                      </div>
-                    </div>
-                  }
-                  
-
-                  <div className={`bg-white py-5 ${!item.video && 'my-10'}  ${!item.image && 'my-10'}`}>
-                    <p className='text-gray-500 text-center font-bold'>{item.question}</p>
-                  </div>
-
-                  {item.choices.map((item, index) => (
-                    <div 
-                      className={`${item === selectedChoice[number] ? 'bg-gray-200' : 'bg-white'} p-5 mt-5 border rounded-[10px] hover:bg-gray-100`}
-                      key={index}
-                      onClick={() => handleSelection(item, number)}
-                    >
-                    <p className='text-gray-500'>{choicesLabel(index)}. {item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
+          { page == 'startQuiz' && 
+            <QuestionCard
+              quizQuestions={quizQuestions}
+              handleSelection={handleSelection}
+              selectedChoice={selectedChoice}
+            /> 
+          }
+          { page == 'endQuiz' && <QuizResult />}
         </div>
       </div>
     </div>
