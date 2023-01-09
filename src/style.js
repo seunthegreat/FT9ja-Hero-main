@@ -34,8 +34,8 @@ const styles = {
     normal: "lg:text-sm xs:text-xs",
     small: "text-xs lg:text-ss",
     smallest: "text-xs lg:text-ss",
-    heading: "lg:text-4xl xs:text-3xl",
-    subHeading: "text-xl text-black font-semibold",
+    heading: "lg:text-4xl sm:text-xl xs:text-3xl",
+    subHeading: "lg:text-xl sm:text-ss md:text-ss xs:text-xs text-black font-semibold",
     body: "font-normal text-gray-500 text-xs",
   }
   

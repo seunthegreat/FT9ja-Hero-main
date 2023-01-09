@@ -55,7 +55,7 @@ const Quiz = () => {
   const handleSelection = (item, number) => {
     const updatedChoice = handleChoiceClick(selectedChoice, item, number);
     setSelectedChoice([...selectedChoice, updatedChoice]);
-  }
+  };
 
 
   return (
@@ -78,15 +78,15 @@ const Quiz = () => {
           <DNavbar route={"Quiz"}/>
         </div>
 
-        <div>
-          { page == 'startQuiz' && 
+        <div className=''>
+          { page == 'main' && 
             <QuestionCard
               quizQuestions={quizQuestions}
               handleSelection={handleSelection}
               selectedChoice={selectedChoice}
             /> 
           }
-          { page == 'endQuiz' && <QuizResult />}
+          { page == 'result' && <QuizResult />}
         </div>
       </div>
     </div>

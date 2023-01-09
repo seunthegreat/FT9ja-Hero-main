@@ -432,6 +432,49 @@ export const activities = [
   },
 ];
 
+//--Quiz--//
+
+export const choicesLabel = (index) => {
+  if (index == 0 ) return 'A';
+  if ( index == 1 ) return 'B';
+  if ( index == 2 ) return 'C';
+  if ( index == 3 ) return 'D';
+  if ( index == 4 ) return 'E';
+};
+
+export const quiz = [  
+  { 
+    id: 123,
+    question: 'What is the capital of France?',    
+    choices: ['Paris', 'London', 'New York', 'Berlin'],
+    answer: 'Paris'
+  },
+  {
+    id: 123,
+    question: 'What is the capital of Italy?',
+    choices: ['Rome', 'Paris', 'Madrid', 'Berlin'],
+    answer: 'Rome'
+  },
+  {
+    id: 123,
+    question: 'What is the capital of Spain?',
+    choices: ['Madrid', 'Paris', 'Rome', 'Berlin'],
+    answer: 'Madrid'
+  },
+  {
+    id: 123,
+    question: 'What is the capital of Germany?',
+    choices: ['Berlin', 'Paris', 'Rome', 'Madrid'],
+    answer: 'Berlin'
+  },
+  {
+    id: 123,
+    question: 'What is the capital of the United Kingdom?',
+    choices: ['London', 'Paris', 'Rome', 'Berlin'],
+    answer: 'London'
+  }
+];
+
 //--Learning--//
 
 export const forexVideos = [

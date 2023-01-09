@@ -22,17 +22,17 @@ const Advocate = () => {
       return;
     }
 
-    console.log('fileObj is', fileObj);
+   // console.log('fileObj is', fileObj);
 
     // 👇️ reset file input
     event.target.value = null;
 
     // 👇️ is now empty
-    console.log(event.target.files);
+    //console.log(event.target.files);
 
     // 👇️ can still access file object here
-    console.log(fileObj);
-    console.log(fileObj.name);
+    //console.log(fileObj);
+    //console.log(fileObj.name);
   };
 
   return (

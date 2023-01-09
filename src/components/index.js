@@ -11,6 +11,10 @@ import QuestionCard from "./QuestionCard";
 import QuizResult from "./QuizResult";
 import Recommendations from "./Recommendations";
 import Tips from "./Tips";
+import QuizTimer from "./QuizTimer.jsx";
+import Button from "./Button";
+import QuizCalendar from "./QuizCalendar";
+import Quiz from "./Quiz";
 
 export {
   Navbar,
@@ -25,5 +29,9 @@ export {
   QuestionCard,
   QuizResult,
   Recommendations,
-  Tips
+  Tips,
+  QuizTimer,
+  Button,
+  QuizCalendar,
+  Quiz
 };

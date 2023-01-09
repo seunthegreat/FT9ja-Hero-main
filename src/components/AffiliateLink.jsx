@@ -13,7 +13,7 @@ const AffiliateLink = ({containerStyle}) => {
   const handleCopy = () => {
     copyToClipboard(ref.current.textContent);
     showToastMessage();
-    console.log(ref.current.textContent)
+    //console.log(ref.current.textContent)
   };
 
   const showToastMessage = () => {

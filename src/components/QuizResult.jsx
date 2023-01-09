@@ -7,8 +7,8 @@ import Recommendations from './Recommendations';
 
 const QuizResult = () => {
 
-  const { setPage } = useStateContext();
-  const score = 30;
+  const { setPage, score } = useStateContext();
+  
 
   const passed = {
     title: 'Congratulations',
@@ -30,7 +30,7 @@ const QuizResult = () => {
   
   return(
     <div id="results" className='m-5 flex flex-col h-screen'>
-      <div className='flex flex-col border rounded-[10px] h-[80%] justify-center items-center'>
+      <div className='flex flex-col border rounded-[10px] h-[80%] justify-center items-center md:mt-0 sm:mt-20'>
         <p className={`${text.heading} font-semibold`}>{score >= 60 ? passed.title : failed.title}</p>
         <div className='w-[100px] h-[100px] sm:my-10 ss:my-5'>
           <CircularProgressbar 
@@ -51,13 +51,13 @@ const QuizResult = () => {
             <Button 
               title={"Take Quiz again"} 
               styles='rounded-[50px] mb-2'
-              onClick={() => setPage('startQuiz')}
+              onClick={() => setPage('main')}
             />
             <Button 
               title={"Go Home"} 
               textStyle={'text-black'}
               styles='rounded-[50px] bg-lightGreen'
-              onClick={() => setPage('home')}
+              onClick={() => setPage('main')}
             />
            </div> : <Recommendations data={recommendations}/>
         }
