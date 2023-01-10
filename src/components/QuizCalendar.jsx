@@ -1,24 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { text } from '../style';
 import { useStateContext } from '../context/ContextProvider';
-import { search } from '../functions/Quiz';
-
-const months = [
-  { id: 1, label: "January", value: "Jan" },
-  { id: 2, label: "February", value: "Feb" },
-  { id: 3, label: "March", value: "Mar" },
-  { id: 4, label: "April", value: "Apr" },
-  { id: 5, label: "May", value: "May" },
-  { id: 6, label: "June", value: "Jun" },
-  { id: 7, label: "July", value: "Jul" },
-  { id: 8, label: "August", value: "Aug" },
-  { id: 9, label: "September", value: "Sep" },
-  { id: 10, label: "October", value: "Oct" },
-  { id: 11, label: "November", value: "Nov" },
-  { id: 12, label: "December", value: "Dec" }
-];
-
-const currentMonth = "January";
+import { getDateString, search } from '../functions/Quiz';
+import { months } from '../constants';
 
 const QuizCalendar = () => {
 
@@ -35,10 +19,15 @@ const QuizCalendar = () => {
     //--Create a new Date object from the date string--//
     const dateObj = new Date(date);
 
-    //--format the date using Intl.DateTimeFormat method--//
-    const month = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(dateObj);
-  
-    return month;
+    //--Get the month number (0-11)--//
+    let monthNum = dateObj.getMonth();
+
+    //--an array of month names--//
+    let monthNames = ["January", "February", "March", "April", "May", "June",
+                      "July", "August", "September", "October", "November", "December"];
+
+    //--Return the name of the month--//
+    return monthNames[monthNum];
   };
 
   const getEligibleMonths = (history) => {
@@ -76,8 +65,6 @@ const QuizCalendar = () => {
     setSelectedMonth(item.label);
   };
 
-
-
   useEffect(()=> {
     setEligibleMonths(getEligibleMonths(history));
   },[])
@@ -108,7 +95,7 @@ const QuizCalendar = () => {
               <div className={`${eligibleMonths[index] ?  isEligible(item.label, index) ? 'border-2 border-[#359602]' : 'border-2 border-red-200' : 
                 'border-gray-200'}
                 rounded-full w-10 h-10 items-center justify-center flex border hover:scale-105`}>
-                <p className={`${text.small} ${currentMonthInfo.month == item.label && 'text-[#359602] font-semibold'} text-gray-500`}>{item.value}</p>
+                <p className={`${text.small} ${currentMonthInfo.month == item.label && 'text-slate-900 font-semibold'} text-gray-500`}>{item.value}</p>
               </div>
               {(index !== (months.length - 1)) &&
                 <div className={`${eligibleMonths[index] ?  isEligible(item.label, index) ? 'border-[#359602]' : 'border-red-200' : 

@@ -475,6 +475,21 @@ export const quiz = [
   }
 ];
 
+export const months = [
+  { id: 1, label: "January", value: "Jan" },
+  { id: 2, label: "February", value: "Feb" },
+  { id: 3, label: "March", value: "Mar" },
+  { id: 4, label: "April", value: "Apr" },
+  { id: 5, label: "May", value: "May" },
+  { id: 6, label: "June", value: "Jun" },
+  { id: 7, label: "July", value: "Jul" },
+  { id: 8, label: "August", value: "Aug" },
+  { id: 9, label: "September", value: "Sep" },
+  { id: 10, label: "October", value: "Oct" },
+  { id: 11, label: "November", value: "Nov" },
+  { id: 12, label: "December", value: "Dec" }
+];
+
 //--Learning--//
 
 export const forexVideos = [
@@ -541,5 +556,20 @@ export const messages = {
         to the industry or an experienced trader, these resources will provide valuable 
         insights and tips to help you succeed. We hope you find these videos helpful and informative.`
     }
+  }
+}
+
+export const tips = {
+  quiz: {
+    general: {
+      title: "Welcome to our Quiz Page!",
+      body: `We've compiled a series of videos to help you understand 
+        the key elements of successful promotional campaigns and how to effectively market our brand. Whether you're new 
+        to the industry or an experienced trader, these resources will provide valuable 
+        insights and tips to help you succeed. We hope you find these videos helpful and informative.`
+    },
+    beforeQuiz: 'Take a quiz and score over 60% to become eligible for your monthly stipends!',
+    afterQuiz: 'Click on the calendar month to display quiz summary!',
+    failedQuiz: 'You were unable to redeem your stipends due to a low score in your quiz!',
   }
 }

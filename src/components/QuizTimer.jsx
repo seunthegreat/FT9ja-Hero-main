@@ -2,9 +2,11 @@ import React from 'react';
 import Button from './Button';
 import { text } from '../style';
 import { useStateContext } from '../context/ContextProvider';
-import { calculateQuizResult } from '../functions/Quiz';
+import { calculateQuizResult, search } from '../functions/Quiz';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+const today = new Date();
 
 const timerFields = [
   {id: 0, label: 'Hours', value: "hours"},
@@ -20,7 +22,8 @@ const showToastMessage = (message) => {
 
 const QuizTimer = () => {
   const { quizDuration, setQuiz , time, setTime, timer, selectedChoice,  
-    quizQuestions, setPage, setScore } = useStateContext();
+    quizQuestions, setPage, setScore, passMark, setHistory, currentMonthInfo,
+    attempts, setShowCalendar, quizRecord, history, setCurrentMonthInfo } = useStateContext();
 
   let hours = Math.floor(time / 3600);
   let minutes = Math.floor(time / 60);
@@ -28,15 +31,49 @@ const QuizTimer = () => {
 
   const handleStop = () => {
     const result = calculateQuizResult( quizQuestions, selectedChoice);
-    if (result.error) return showToastMessage(result.message);
-
-    console.log(result);
+    const {error, score} = result;
+    if (error) return showToastMessage(result.message);
+    
     clearInterval(timer.current);
-    setQuiz(null);
+
+    const { month } = currentMonthInfo;
+    let update = updateCurrentMonthInfo(month, quizRecord, score, attempts);
+  
+    setQuiz('completed');
     setPage('result');
     setScore(result.score);
     setTime(quizDuration * 60);
+    setShowCalendar(true); //--> Make calendar visible
+    setCurrentMonthInfo(update);
+
+    if ( score >= passMark) {
+     const newRecord = { 
+       id: history.length + 1, 
+       //date: new Date(), 
+       date: '04/11/2022',
+       quizId: currentMonthInfo.id, 
+       quizName: currentMonthInfo.name, 
+       score, 
+       timeSpent: 30, 
+       attempts: attempts.length + 1,
+       selectedChoice
+     };
+
+     setHistory(prev => [...prev, newRecord])
+    }
+  };
+
+  const updateCurrentMonthInfo = (query, record, score, attempts) => {
+    let result = search(query, record, 'month');
+    let { id, name, description, month } = result;
+  
+    const info = { id, name, description, month,
+      score, attempts, timeSpent: 30, date: '04/11/2022' };
+    
+    return info;
   }
+
+
 
  
   return (

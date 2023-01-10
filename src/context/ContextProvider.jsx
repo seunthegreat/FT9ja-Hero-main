@@ -32,10 +32,11 @@ const quizState = {
   selectedMonth: null,
   currentMonthInfo: quizRecord[3],
   score: 0,
+  passMark: 60,
   history: [
-    { id: 0, date: '01/22/2022', quizId:120, quizName: 'January Rush', score: 60, timeSpent: 60, attempts: 4 },
-    { id: 1, date: '02/12/2022', quizId:121, quizName: 'February Tease', score: 80, timeSpent: 70, attempts: 6 },
-    { id: 1, date: '03/12/2022', quizId:119, quizName: 'Marching Wins', score: 20, timeSpent: 30, attempts: 2 }
+    { id: 0, date: '01/22/2022', quizId:120, quizName: 'January Rush', score: 60, timeSpent: 60, attempts: 4, selectedChoice: [] },
+    { id: 1, date: '02/23/2022', quizId:121, quizName: 'February Tease', score: 80, timeSpent: 70, attempts: 6, selectedChoice: [] },
+    { id: 2, date: '03/11/2022', quizId:119, quizName: 'Marching Wins', score: 20, timeSpent: 30, attempts: 2 , selectedChoice: []}
   ],
   attempts: [], //-> id, quizId, quizName, score, selectedChoice
 };
@@ -59,6 +60,7 @@ export const ContextProvider = ({children}) => {
   const [history, setHistory] = useState(quizState.history);
   const [score, setScore] = useState(quizState.score);
   const [attempts, setAttempts] = useState(quizState.attempts);
+  const [passMark, setPassMark] = useState(quizState.passMark);
   const quizQuestions = quizState.quizQuestions;
   const quizDuration = quizState.duration;
   const timer = useRef(null);
@@ -92,7 +94,7 @@ export const ContextProvider = ({children}) => {
           currentQuizIndex, setCurrentQuizIndex, selectedChoice, setSelectedChoice,
           showCalendar, setShowCalendar, quizQuestions, history, setHistory,
           score, setScore, attempts, setAttempts, selectedMonth, setSelectedMonth,
-          currentMonthInfo, setCurrentMonthInfo, quizRecord,
+          currentMonthInfo, setCurrentMonthInfo, quizRecord, passMark, setPassMark,
 
           //--Learning--//
           showTip,

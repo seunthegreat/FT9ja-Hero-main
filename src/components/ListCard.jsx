@@ -10,7 +10,7 @@ const convertDateToWords = (dateString) => {
   //-- Get the month as a string (e.g. "October")--//
   const month = date.toLocaleString('default', { month: 'long' });
   //--Get the day of the month (e.g. 16)--//
-  const day = date.getDate();
+  const day = date.date();
   //--Get the year (e.g. 2021)--//
   const year = date.getFullYear();  
   // Return the formatted string

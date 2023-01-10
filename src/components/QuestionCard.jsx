@@ -4,6 +4,7 @@ import { text, layout } from '../style';
 import { useStateContext } from '../context/ContextProvider';
 import { QuizTimer, QuizCalendar, Tips, Button, Quiz} from './index';
 import { search } from '../functions/Quiz';
+import { tips } from '../constants';
 
 const choicesLabel = (index) => {
   if (index == 0 ) return 'A';
@@ -21,7 +22,7 @@ const QuizCompleted = () => (
 );
 
 
-const tip = `Take a quiz and score over 60% to become eligible for your monthly stipends!`
+
 
 const getDuration = (x) => {
   let hours = Math.floor(x / 60);
@@ -32,8 +33,9 @@ const getDuration = (x) => {
 
 const QuestionCard = ({handleSelection, selectedChoice}) => {
 
-  const { showQuizTip, setShowQuizTip, quiz, setQuiz , time, 
-    setTime, timer,  quizDuration, setShowCalendar, currentMonthInfo, history } = useStateContext();
+  const { showQuizTip, setShowQuizTip, quiz, setQuiz , 
+    setTime, timer,  quizDuration, setShowCalendar, 
+    currentMonthInfo, history, passMark } = useStateContext();
 
   const duration = getDuration(quizDuration);
 
@@ -52,6 +54,9 @@ const QuestionCard = ({handleSelection, selectedChoice}) => {
 
   const quizSummary = getQuizSummary();
 
+  const sendMsg = () => {
+    console.log("Completed")
+  }
   useEffect(() => {
    
   },[])
@@ -59,33 +64,44 @@ const QuestionCard = ({handleSelection, selectedChoice}) => {
   return (
     <div className='m-5 flex flex-col'>
       
-      <div className='sm:mt-20 ss:mt-20 lg:mt-0 md:mt-0 flex flex-col border rounded-[10px] h-[100%]  items-center'>
+      <div className='sm:mt-10 ss:mt-20 lg:mt-0 md:mt-0 mb-5'>
+        {showQuizTip &&
+          <Tips
+            title={tips.quiz.general.title}
+            body={tips.quiz.general.body}
+            onClick={() => setShowQuizTip(false)}
+          />
+        }
+      </div>
+
+      <div className='flex flex-col border rounded-[10px] h-[100%]  items-center'>
   
         <div className='flex flex-col  px-10 mt-10  w-full'>
           <QuizCalendar />
-          { showQuizTip && <Tips body={tip} onClick={() =>setShowQuizTip(false)}/> }
+            <Tips 
+              type="secondary"
+              body={ quiz == null && tips.quiz.beforeQuiz || quiz == 'completed' && tips.quiz.afterQuiz } 
+            /> 
         </div>
 
         <div className='flex flex-col w-full px-10 my-5'>
           <div className='flex flex-row  w-full items-center justify-between'>
             <div className='flex flex-row'>
               <p className={`text-ss mr-2 text-gray-500`}>{currentMonthInfo.month} Quiz </p>
-             {/* // <p className={'font-semibold'}>{currentMonthInfo.name}</p> */}
             </div>
 
-            {!currentMonthInfo.attempts > 0 && (
               <Button
-                title={quiz == null && 'Start' || quiz == 'start' && 'In Progress'}
+                title={quiz == null && 'Start' || quiz == 'start' && 'In Progress' || currentMonthInfo.score >= passMark && 'Completed' }
                 smallest styles={'rounded-[50px]'}
-                onClick={() => handleStart()}
+                onClick={ !quiz ? handleStart : currentMonthInfo.score && currentMonthInfo.score >= passMark && sendMsg }
               />
-            )}
+            
           </div>
 
           { currentMonthInfo.attempts > 0 && (
             <div className={`bg-lightGreen mt-3 px-5 flex flex-col py-5`}>
 
-              {currentMonthInfo.score < 60 && <Tips  type="secondary" body={'You were unable to redeem your stipends due to a low score in your quiz!'} />}
+              {currentMonthInfo.score < 60 && <Tips type="secondary" body={tips.quiz.failedQuiz} />}
               <div className='flex mt-3'>
               <div className='flex flex-row mr-2'>
                 <div className='w-[200px] h-[100px] px-2 flex-wrap justify-center bg-white rounded-[5px] flex flex-col items-center'>

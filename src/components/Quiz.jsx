@@ -48,13 +48,15 @@ const Quiz = () => {
         ss:grid-cols-2 xs:grid-cols-1 gap-2`}>
 
           {currentQuiz.choices.map((choice, index) => (
-            <div
+            <button
               className={`${choice == selectedChoice[currentQuizIndex] && 'bg-gray-200' } p-4 border rounded-[10px] hover:bg-gray-100`}
               key={index}
               onClick={() => handleSelection(choice, currentQuizIndex)}
               >
-               <p className='text-gray-500'>{choicesLabel(index)}. {choice}</p>
-            </div>
+               <div className=''>
+                  <p className='text-gray-500 text-left'>{choicesLabel(index)}. {choice}</p>
+               </div>
+            </button>
           ))}
        </div>
 

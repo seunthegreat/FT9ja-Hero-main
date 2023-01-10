@@ -7,7 +7,24 @@ import Recommendations from './Recommendations';
 
 const QuizResult = () => {
 
-  const { setPage, score } = useStateContext();
+  const { setPage, score, currentMonthInfo, selectedChoice, attempts, setAttempts, 
+    setSelectedChoice, setCurrentQuizIndex } = useStateContext();
+
+  const attempt = {
+    id: attempts + 1,
+    quizId: currentMonthInfo.id,
+    quizName: currentMonthInfo.name,
+    score, 
+    selectedChoice
+  };
+
+  const handleTryAgain = () => {
+    //console.log(attempt);
+    setAttempts(prevAttempts => [...prevAttempts, attempt]);
+    setPage('main');
+    setSelectedChoice([]); 
+    setCurrentQuizIndex(0);
+  };
   
 
   const passed = {
@@ -51,7 +68,7 @@ const QuizResult = () => {
             <Button 
               title={"Take Quiz again"} 
               styles='rounded-[50px] mb-2'
-              onClick={() => setPage('main')}
+              onClick={handleTryAgain}
             />
             <Button 
               title={"Go Home"} 

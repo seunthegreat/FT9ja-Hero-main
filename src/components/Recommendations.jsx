@@ -5,21 +5,27 @@ import { Link } from 'react-router-dom';
 import { useStateContext } from '../context/ContextProvider';
 
 const Recommendations = ({data}) => {
-  const { setPage, setAttempts, selectedChoice, score, attempts } = useStateContext();
+  const { setPage, setAttempts, selectedChoice, score, attempts, currentMonthInfo, 
+    setSelectedChoice, setCurrentQuizIndex, setQuiz } = useStateContext();
 
   const attempt = {
     id: attempts + 1,
-    quizId: 'xxx',
-    quizName: 'Management Test',
+    quizId: currentMonthInfo.id,
+    quizName: currentMonthInfo.name,
     score, 
     selectedChoice
-  }
+  };
 
   const handleTryAgain = () => {
     //console.log(attempt);
     setAttempts(prevAttempts => [...prevAttempts, attempt]);
+    setQuiz(null);
     setPage('main');
-  }
+    setSelectedChoice([]); 
+    setCurrentQuizIndex(0);
+  };
+
+  //console.log(currentMonthInfo)
 
   return(
     <>
