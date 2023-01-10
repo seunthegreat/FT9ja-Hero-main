@@ -62,7 +62,7 @@ const QuestionCard = ({handleSelection, selectedChoice}) => {
   },[])
 
   return (
-    <div className='m-5 flex flex-col'>
+    <div className='mx-5 flex flex-col'>
       
       <div className='sm:mt-10 ss:mt-20 lg:mt-0 md:mt-0 mb-5'>
         {showQuizTip &&

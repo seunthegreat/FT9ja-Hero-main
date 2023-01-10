@@ -8,8 +8,20 @@ const initialState = {
 };
 
 const learningState = {
-  showTip: true,
+  showLearningTip: true,
   activeTab: 'all', //-> "all", 'inProgress', 'completed'
+};
+
+const activitiesState = {
+  showActivitiesTip: true,
+};
+
+const advocateState = {
+  showAdvocateTip: true,
+};
+
+const benefitState = {
+  showBenefitsTip: true,
 };
 
 const quizRecord = [
@@ -73,9 +85,17 @@ export const ContextProvider = ({children}) => {
   ];
 
   //--Learning--//
-  const [showTip, setShowTip] = useState(learningState.showTip);
+  const [showLearningTip, setShowLearningTip] = useState(learningState.showLearningTip);
   const [activeTab, setActiveTab] = useState(learningState.activeTab);
 
+  //--Activities--//
+  const [showActivitiesTip, setShowActivitiesTip] = useState(activitiesState.showActivitiesTip);
+
+  //--Advocate--//
+  const [showAdvocateTip, setShowAdvocateTip] = useState(advocateState.showAdvocateTip);
+
+  //--Benefits--//
+  const [showBenefitsTip, setShowBenefitsTip] = useState(benefitState.showBenefitsTip);
 
   //--Function--//
   const handleClick = (clicked) => {
@@ -97,12 +117,17 @@ export const ContextProvider = ({children}) => {
           currentMonthInfo, setCurrentMonthInfo, quizRecord, passMark, setPassMark,
 
           //--Learning--//
-          showTip,
-          setShowTip,
-          activeTab,
-          setActiveTab,
-          showQuizTip,
-          setShowQuizTip
+          showLearningTip, setShowLearningTip, activeTab, setActiveTab,
+          showQuizTip, setShowQuizTip,
+
+          //--Activities--//
+          showActivitiesTip, setShowActivitiesTip,
+
+          //--Advocate--//
+          showAdvocateTip, setShowAdvocateTip,
+
+          //--Benefits--//
+          showBenefitsTip, setShowBenefitsTip,
         }
       }
     >

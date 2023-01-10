@@ -1,11 +1,12 @@
 import React, { useCallback, useRef } from 'react';
 import { useStateContext } from '../context/ContextProvider';
-import { Sidebar, DNavbar } from '../components';
+import { Sidebar, DNavbar, Tips } from '../components';
 import { useDropzone } from 'react-dropzone';
 import { Document } from '../assets';
+import { tips } from '../constants';
 
 const Advocate = () => {
-  const { activeMenu } = useStateContext();
+  const { activeMenu, showAdvocateTip, setShowAdvocateTip } = useStateContext();
   const inputRef = useRef(null);
   const onDrop = useCallback(acceptedFiles => {
     // Do something with the files
@@ -63,7 +64,16 @@ const Advocate = () => {
 
           <DNavbar route={"Advocate"}/>
 
-          <div className='h-screen lg:p-10 md:p-10 sm:p-10 xs:p-10 flex flex-col items-center'>
+          <div className='flex flex-col lg:px-10 xs:px-5 sm:mt-20 ss:mt-10 xs:mt-5 md:mt-0'>
+              {showAdvocateTip &&
+                <div className='mb-5'>
+                  <Tips
+                    title={tips.advocate.general.title}
+                    body={tips.advocate.general.body}
+                    onClick={() => setShowAdvocateTip(false)}
+                  />
+                </div>
+              }
             <div className='h-5/6 xl:h-3/4 lg:w-full w-full border rounded-[10px] m-5 sm:m-0 py-10 flex flex-col items-center'>
               <h2 className="mb-4 text-3xl xs:text-xl font-bold text-center">Proof Of Advocacy</h2>
               <p className="md:w-[60%] lg:w-[60%] sm:w-[70%] ss:w-[80%] xs:w-[70%] mb-8 xs:text-xs lg:text-sm font-light text-center">

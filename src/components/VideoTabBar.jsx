@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStateContext } from '../context/ContextProvider';
 import { tabs } from '../constants';
-import { text } from '../style';
 
 const VideoTabBar = () => {
 
@@ -12,11 +11,11 @@ const VideoTabBar = () => {
       {tabs.map((item, index) => (
         <button
           onClick={() => setActiveTab(item.value)}
-          className={`${activeTab == item.value ? 'bg-teal-50' : 'bg-teal-50 opacity-80'} py-2 px-5 border-white 
-          rounded-[10px] mb-2 mr-2`}
+          className={`${activeTab == item.value ? 'bg-secondary' : 'bg-gray-100 opacity-80'} py-2 px-5 border-white 
+          rounded-[10px] mb-2 mr-2 hover:bg-secondary`}
           key={index}>
-          <p className={`${activeTab == item.value ? 'font-semibold' : 'font-light'} text-black
-            lg:text-sm md:text-sm ss:text-ss xs:text-xs`}>{item.label}</p>
+          <p className={`${activeTab == item.value ? 'font-semibold text-white' : 'font-light'} text-black
+            lg:text-sm md:text-sm ss:text-ss xs:text-xs hover:text-white`}>{item.label}</p>
         </button>
       ))}
     </div>

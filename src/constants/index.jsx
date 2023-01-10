@@ -535,6 +535,7 @@ export const tabs = [
   {id: 0, label: "All", value: 'all'},
   {id: 1, label: "In Progress", value: 'inProgress'},
   {id: 2, label: "Completed", value: 'completed'},
+  {id: 3, label: "New", value: 'new'},
 ];
 
 export const userProgress = [
@@ -560,16 +561,49 @@ export const messages = {
 }
 
 export const tips = {
-  quiz: {
-    general: {
-      title: "Welcome to our Quiz Page!",
+  learning: {
+    general:  {
+      title: "Welcome to our Learning Page!",
       body: `We've compiled a series of videos to help you understand 
         the key elements of successful promotional campaigns and how to effectively market our brand. Whether you're new 
         to the industry or an experienced trader, these resources will provide valuable 
         insights and tips to help you succeed. We hope you find these videos helpful and informative.`
     },
+  },
+  activities: {
+    general:  {
+      title: "Welcome to the Activities Page!",
+      body: `Here you can view the list of activities that need to be completed within the specified period of time. 
+        Each activity will require you to upload a proof of advocacy to show that you have completed it. By completing 
+        these activities, you will be eligible for certain rewards. Let's get started!`
+    },
+  },
+  advocate: {
+    general:  {
+      title: "Welcome to the Advocacy Page!",
+      body: `We appreciate your support for our brand, and we're excited to provide you with an easy way to submit proof 
+      of your advocacy. By sending us images and videos of you promoting our brand, you'll be able to maintain your 
+      advocacy status, which will provide you with exclusive privileges. Let's get started!`
+    },
+  },
+  benefits: {
+    general:  {
+      title: "Welcome to the Benefits Page!",
+      body: `We're excited to offer you a variety of rewards for being a part of our platform. Here, you'll find information 
+        about the exclusive privileges, updates, souvenirs, gifts, and prizes that you can earn. By being a member of our platform, 
+        you'll have access to exclusive content, discounts and more. We hope you enjoy the rewards that come with being a part 
+        of our community! Let's check it out!`
+    },
+  },
+  quiz: {
+    general: {
+      title: "Welcome to our Quiz Page!",
+      body: `This quiz will determine your eligibility to receive stipends for a given month. Take a look at the 
+      calendar "History" below to get summary regarding the quiz for the month and check your eligibility status. The pass
+      mark for the quiz is set at 60% and you are given unlimited attempts only within a month. Good luck, and let's get started!`
+    },
     beforeQuiz: 'Take a quiz and score over 60% to become eligible for your monthly stipends!',
     afterQuiz: 'Click on the calendar month to display quiz summary!',
     failedQuiz: 'You were unable to redeem your stipends due to a low score in your quiz!',
-  }
+  },
 }

@@ -4,15 +4,15 @@ import { BsShareFill } from "react-icons/bs";
 //--function--//
 const convertDateToWords = (dateString) => {
 
-  const date = new Date(dateString);
+  const newDate = new Date(dateString);
   //--Get the day of the week as a string (e.g. "Monday")--//
-  const dayOfWeek = date.toLocaleString('default', { weekday: 'long' });
+  const dayOfWeek = newDate.toLocaleString('default', { weekday: 'long' });
   //-- Get the month as a string (e.g. "October")--//
-  const month = date.toLocaleString('default', { month: 'long' });
+  const month = newDate.toLocaleString('default', { month: 'long' });
   //--Get the day of the month (e.g. 16)--//
-  const day = date.date();
+  const day = newDate.getDay();
   //--Get the year (e.g. 2021)--//
-  const year = date.getFullYear();  
+  const year = newDate.getFullYear();  
   // Return the formatted string
   return `${dayOfWeek}, ${month} ${day} ${year}`;
 };
@@ -28,6 +28,7 @@ const ListCard = ({data}) => (
       </h4>
       <div className='flex flex-row justify-between items-center'>
         <p className="font-normal text-gray-500 text-xs leading-[24px] mb-1">
+         
           {convertDateToWords(data.date)}
         </p>
         <button>

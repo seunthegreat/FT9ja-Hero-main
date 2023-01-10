@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStateContext } from '../context/ContextProvider';
-import { Sidebar, DNavbar } from '../components';
+import { Sidebar, DNavbar, Tips } from '../components';
 import styles, { layout, text } from '../style';
 import ListCard from '../components/ListCard';
 import { ambassadorshipBenefits } from '../constants';
@@ -9,6 +9,7 @@ import MiniStatsCard from '../components/MiniStatsCard';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { trackBenefits } from '../assets';
+import { tips } from '../constants';
 
 const metricFields = [
   {id: 'total-comm', label: "Total Commission", iconColor: "bg-[#3596021A]", type: 'money'},
@@ -33,7 +34,7 @@ const calculatePercentage = (referrals) => {
 };
 
 const Benefits = () => {
-  const { activeMenu } = useStateContext();
+  const { activeMenu, showBenefitsTip, setShowBenefitsTip } = useStateContext();
   return (
     <div className='flex relative'>
       {activeMenu ? (
@@ -54,10 +55,14 @@ const Benefits = () => {
           <DNavbar route={"Benefit"}/>
         </div>
 
-        <div className='flex flex-col lg:px-10 xs:px-5 sm:mt-20 ss:mt-10 xs:mt-5 md:mt-10'>
-          <h2 className="lg:mt-0 hidden sm:block ss:mt-5 xs:mt-10 lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl font-bold">
-            Benefits
-          </h2>
+        <div className='flex flex-col lg:px-10 xs:px-5 sm:mt-20 ss:mt-10 xs:mt-5 md:mt-0'>
+          {showBenefitsTip &&
+            <Tips
+              title={tips.benefits.general.title}
+              body={tips.benefits.general.body}
+              onClick={() => setShowBenefitsTip(false)}
+            />
+          }
 
           <div className={`${layout.sectionItems} mt-8 md:mt-8 md:ml-0`}>
             <div className='border p-5 rounded-[10px] mb-10'>

@@ -1,11 +1,8 @@
 import React from 'react';
 import { useStateContext } from '../context/ContextProvider';
-import { Sidebar, DNavbar } from '../components';
-import Videos from '../components/Videos';
-import { forexVideos, messages, userProgress } from '../constants';
-import { text } from '../style';
-import { GrClose } from "react-icons/gr";
-import VideoTabBar from '../components/VideoTabBar';
+import { Sidebar, DNavbar, Videos, VideoTabBar, Tips } from '../components';
+import { forexVideos, messages, userProgress, tips } from '../constants';
+
 
 const completedVideosId = (userProgress) => {
   const completed = [];
@@ -48,7 +45,7 @@ const inProgress  = getVideosInProgress(inProgressId, forexVideos);
 const { learning } = messages;
 
 const Learning = () => {
-  const { activeMenu, showTip, setShowTip, activeTab } = useStateContext();
+  const { activeMenu, showLearningTip, setShowLearningTip, activeTab } = useStateContext();
 
   return (
     <div className='flex relative'>
@@ -67,26 +64,20 @@ const Learning = () => {
             ${activeMenu ? 'md:ml-72' : 'flex-2'}`}
       >
 
-      <div className='flex bg-[#3B7C4E]'>
+      <div className='flex'>
         <div className='z-10 fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
             <DNavbar route={"Learning"}/>
           </div>
         </div>
 
-        <div className='flex flex-col w-full bg-[#3B7C4E] lg:pt-0 md:pt-0 sm:pt-10 ss:pt-10 xs:pt-10 px-5'>
+        <div className='sm:mt-5 ss:mt-20 lg:mt-0 md:mt-0 flex flex-col w-full lg:pt-0 md:pt-0 sm:pt-10 ss:pt-10 xs:pt-10 px-5'>
 
-          { showTip &&
-            <div className='flex flex-col bg-slate-100 p-5 rounded-[5px] lg:mt-5 md:mt-5 sm:mt-10 ss:mt-10 xs:mt-10'>
-              <div className='absolute right-10  w-[20px] h-[20px]'>
-                <button
-                  onClick={() => setShowTip(false)}
-                  className='hover:bg-slate-200 p-1 rounded-full'>
-                  <GrClose />
-                </button>
-              </div>
-              <p className={`${text.subHeading} mb-2`}>{learning.tip.title}</p>
-              <p className={`${text.smallest}`}>{learning.tip.body}</p>
-            </div>
+          { showLearningTip &&
+            <Tips
+              title={tips.learning.general.title}
+              body={tips.learning.general.body}
+              onClick={() => setShowLearningTip(false)}
+            />
           }
         
           <VideoTabBar />

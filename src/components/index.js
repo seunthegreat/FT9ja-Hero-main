@@ -15,23 +15,11 @@ import QuizTimer from "./QuizTimer.jsx";
 import Button from "./Button";
 import QuizCalendar from "./QuizCalendar";
 import Quiz from "./Quiz";
+import Videos from "./Videos";
+import VideoTabBar from "./VideoTabBar";
 
 export {
-  Navbar,
-  CTA,
-  Footer,
-  Hero,
-  Benefits,
-  HowItWorks,
-  Faqs,
-  Sidebar,
-  DNavbar,
-  QuestionCard,
-  QuizResult,
-  Recommendations,
-  Tips,
-  QuizTimer,
-  Button,
-  QuizCalendar,
-  Quiz
+  Navbar, CTA, Footer, Hero, Benefits, HowItWorks, Faqs,
+  Sidebar, DNavbar, QuestionCard, QuizResult, Recommendations,
+  Tips, QuizTimer, Button, QuizCalendar, Quiz, Videos, VideoTabBar
 };
