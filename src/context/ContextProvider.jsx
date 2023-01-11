@@ -97,6 +97,9 @@ export const ContextProvider = ({children}) => {
   //--Benefits--//
   const [showBenefitsTip, setShowBenefitsTip] = useState(benefitState.showBenefitsTip);
 
+  //--History--//
+  const [openPaymentHistory, setOpenPaymentHistory] = React.useState(false);
+
   //--Function--//
   const handleClick = (clicked) => {
     setIsClicked({...initialState, [clicked]: true});
@@ -128,6 +131,9 @@ export const ContextProvider = ({children}) => {
 
           //--Benefits--//
           showBenefitsTip, setShowBenefitsTip,
+
+          //--History Modal--//
+          openPaymentHistory, setOpenPaymentHistory,
         }
       }
     >

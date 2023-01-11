@@ -75,7 +75,6 @@ const Activities = () => {
             />
           }
 
-
           <div className={`${layout.sectionItems} mt-8 md:mt-8 md:ml-0`}>
             <div className='border p-5 rounded-[10px] mb-10'>
               {activities.map((item, index) => (

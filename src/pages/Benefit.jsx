@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStateContext } from '../context/ContextProvider';
-import { Sidebar, DNavbar, Tips } from '../components';
+import { Sidebar, DNavbar, Tips, HistoryModal } from '../components';
 import styles, { layout, text } from '../style';
 import ListCard from '../components/ListCard';
 import { ambassadorshipBenefits } from '../constants';
@@ -10,6 +10,7 @@ import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { trackBenefits } from '../assets';
 import { tips } from '../constants';
+import Modal from '@mui/material/Modal';
 
 const metricFields = [
   {id: 'total-comm', label: "Total Commission", iconColor: "bg-[#3596021A]", type: 'money'},
@@ -34,7 +35,8 @@ const calculatePercentage = (referrals) => {
 };
 
 const Benefits = () => {
-  const { activeMenu, showBenefitsTip, setShowBenefitsTip } = useStateContext();
+  
+  const { activeMenu, showBenefitsTip, setShowBenefitsTip, setOpenPaymentHistory, openPaymentHistory } = useStateContext();
   return (
     <div className='flex relative'>
       {activeMenu ? (
@@ -54,6 +56,8 @@ const Benefits = () => {
          <div className='z-10 fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
           <DNavbar route={"Benefit"}/>
         </div>
+
+        { openPaymentHistory && <HistoryModal type='payment'/> }
 
         <div className='flex flex-col lg:px-10 xs:px-5 sm:mt-20 ss:mt-10 xs:mt-5 md:mt-0'>
           {showBenefitsTip &&
@@ -103,7 +107,7 @@ const Benefits = () => {
                 </div>
                 <div className='flex flex-row'>
                   <Button title={"Cashout"} smallest styles={'mr-2'}/>
-                  <Button title={"History"} smallest/>
+                  <Button title={"History"} smallest onClick={() => setOpenPaymentHistory(true)}/>
                 </div>
               </div>
 

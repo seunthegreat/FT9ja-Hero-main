@@ -8,6 +8,7 @@ module.exports = {
         primary: "white",
         secondary: "#246700",
         lightGreen: "#E8F4EA",
+        fadeGreen: "rgba(0, 128, 0, 0.1)",
         button: "#359602",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",

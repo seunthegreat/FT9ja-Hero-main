@@ -17,9 +17,11 @@ import QuizCalendar from "./QuizCalendar";
 import Quiz from "./Quiz";
 import Videos from "./Videos";
 import VideoTabBar from "./VideoTabBar";
+import HistoryModal from "./HistoryModal";
 
 export {
   Navbar, CTA, Footer, Hero, Benefits, HowItWorks, Faqs,
   Sidebar, DNavbar, QuestionCard, QuizResult, Recommendations,
-  Tips, QuizTimer, Button, QuizCalendar, Quiz, Videos, VideoTabBar
+  Tips, QuizTimer, Button, QuizCalendar, Quiz, Videos, VideoTabBar,
+  HistoryModal,
 };

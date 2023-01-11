@@ -1,5 +1,6 @@
 import React from 'react';
 import { text } from '../style';
+import { addCommas } from '../functions';
 
 const metrics = {
   totalCommission: 120000,
@@ -15,9 +16,6 @@ const handleMetricsData = (id) => {
   if (id === 'trips') return metrics.trips;
 };
 
-const addCommas = (num) => {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
 
 const MiniStatsCard = ({item}) => (
   <div className='bg-dimGreen p-4 rounded flex flex-col items-center justify-center'>
