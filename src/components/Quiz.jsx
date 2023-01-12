@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { choicesLabel } from '../constants';
 import { useStateContext } from '../context/ContextProvider';
 import handleChoiceClick from '../functions/Quiz/handleChoiceClick';
+import Button from './Button';
 
 const Quiz = () => {
 
@@ -76,6 +77,8 @@ const Quiz = () => {
           </div>
         </button>
       )}
+
+      
     </div>
     
   </div>

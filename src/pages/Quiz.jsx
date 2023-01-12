@@ -59,7 +59,7 @@ const Quiz = () => {
 
 
   return (
-    <div className='flex relative'>
+    <div className='flex relative w-full'>
       {activeMenu ? (
         <div className='z-20 w-72 fixed dark:bg-secondary-dark-bg bg-white'>
           <Sidebar />

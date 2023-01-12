@@ -59,7 +59,7 @@ const Benefits = () => {
 
         { openPaymentHistory && <HistoryModal type='payment'/> }
 
-        <div className='flex flex-col lg:px-10 xs:px-5 sm:mt-20 ss:mt-10 xs:mt-5 md:mt-0'>
+        <div className='flex flex-col lg:px-10 xs:px-5'>
           {showBenefitsTip &&
             <Tips
               title={tips.benefits.general.title}
@@ -68,7 +68,7 @@ const Benefits = () => {
             />
           }
 
-          <div className={`${layout.sectionItems} mt-8 md:mt-8 md:ml-0`}>
+          <div className={`${layout.sectionItems} mt-0 md:mt-8 md:ml-0`}>
             <div className='border p-5 rounded-[10px] mb-10'>
               {ambassadorshipBenefits.map((item, index) => (
                 <ListCard data={item} key={index} />

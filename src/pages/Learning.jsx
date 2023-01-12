@@ -70,7 +70,7 @@ const Learning = () => {
           </div>
         </div>
 
-        <div className='sm:mt-5 ss:mt-20 lg:mt-0 md:mt-0 flex flex-col w-full lg:pt-0 md:pt-0 sm:pt-10 ss:pt-10 xs:pt-10 px-5'>
+        <div className='flex flex-col w-full  px-5'>
 
           { showLearningTip &&
             <Tips
@@ -79,10 +79,11 @@ const Learning = () => {
               onClick={() => setShowLearningTip(false)}
             />
           }
-        
-          <VideoTabBar />
+      
         </div>
-
+        
+        <VideoTabBar />
+        
         <Videos
           activeMenu={activeMenu} 
           activeTab={activeTab}

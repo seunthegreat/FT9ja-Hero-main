@@ -64,17 +64,17 @@ const Advocate = () => {
 
           <DNavbar route={"Advocate"}/>
 
-          <div className='flex flex-col lg:px-10 xs:px-5 sm:mt-20 ss:mt-10 xs:mt-5 md:mt-0'>
+          <div className='flex flex-col lg:px-10 xs:px-5 items-center '>
               {showAdvocateTip &&
-                <div className='mb-5'>
-                  <Tips
-                    title={tips.advocate.general.title}
-                    body={tips.advocate.general.body}
-                    onClick={() => setShowAdvocateTip(false)}
-                  />
-                </div>
+                <Tips
+                  title={tips.advocate.general.title}
+                  body={tips.advocate.general.body}
+                  onClick={() => setShowAdvocateTip(false)}
+                  style={'mt-50'}
+                />
               }
-            <div className='h-5/6 xl:h-3/4 lg:w-full w-full border rounded-[10px] m-5 sm:m-0 py-10 flex flex-col items-center'>
+            <div className='h-5/6 xl:h-3/4 lg:w-full w-full border rounded-[10px] m-5 sm:m-0 py-10 flex 
+              flex-col justify-center items-center '>
               <h2 className="mb-4 text-3xl xs:text-xl font-bold text-center">Proof Of Advocacy</h2>
               <p className="md:w-[60%] lg:w-[60%] sm:w-[70%] ss:w-[80%] xs:w-[70%] mb-8 xs:text-xs lg:text-sm font-light text-center">
                 Send proof of advocacy through images and videos to maintain advocacy status and earn rewards

@@ -3,12 +3,16 @@ import { text } from '../style';
 import { useStateContext } from '../context/ContextProvider';
 import { getDateString, search } from '../functions/Quiz';
 import { months } from '../constants';
+import { BiChevronDown } from "react-icons/bi";
 
 const QuizCalendar = () => {
 
   const { showCalendar, setShowCalendar, history, setSelectedMonth, setCurrentMonthInfo, 
-    quizRecord, currentMonthInfo } = useStateContext();
+    quizRecord, currentMonthInfo, screenSize } = useStateContext();
   const [eligibleMonths, setEligibleMonths] = useState([]);
+
+  const smallDevice = screenSize <= 1060 && screenSize >= 768;
+
 
   const handleCalendarToggle = () => {
     if (showCalendar) return setShowCalendar(false);
@@ -65,6 +69,8 @@ const QuizCalendar = () => {
     setSelectedMonth(item.label);
   };
 
+
+
   useEffect(()=> {
     setEligibleMonths(getEligibleMonths(history));
   },[])
@@ -73,33 +79,36 @@ const QuizCalendar = () => {
     return eligibleMonths[index].month == label && eligibleMonths[index].score >= 60 && true;
   }
   return (
-    <div>
+    <div className=''>
       <div className='flex flex-row justify-between'>
         <div className='flex flex-row'>
           <p className={`${!showCalendar ? 'text-gray-500' : 'text-black'} text-ss`}>History</p>
-          {/* <p className='text-black text-ss ml-2'>{' '}{history.length}</p> */}
         </div>
         <button 
           onClick={handleCalendarToggle}
-          className='border p-2 px-4 rounded-[10px] hover:border-[#359602]'>
-          <p className={`${text.small}`}>{ showCalendar ? 'Hide' : 'Show'}</p>
+          className='border p-2 sm:px-4 xs:px-2 rounded-[10px] hover:border-[#359602] 
+            flex flex-row items-center'>
+          <p className={`${text.small} hidden sm:block`}>{ showCalendar ? 'Hide' : 'Show'}</p>
+          <BiChevronDown size={20}/>
         </button>
+       
       </div>
       {showCalendar && (
-        <div className='mt-5 flex w-full'>
+        <div className='mt-5 flex w-full grid md:grid-cols-12 sm:grid-cols-9 ss:grid-cols-9 xs:grid-cols-6'>
           {months.map((item, index) => (
             <button 
               onClick={() => handleMonthSelection(item)}
               key={index} 
-              className='flex flex-row items-center'>
+              className='flex flex-row items-center xs:mb-2 sm:mb-4 ss:mb-4'>
               <div className={`${eligibleMonths[index] ?  isEligible(item.label, index) ? 'border-2 border-[#359602]' : 'border-2 border-red-200' : 
-                'border-gray-200'}
-                rounded-full w-10 h-10 items-center justify-center flex border hover:scale-105`}>
+                'border-gray-200'} rounded-full w-10 h-10 items-center justify-center 
+                flex border hover:scale-105 `}>
                 <p className={`${text.small} ${currentMonthInfo.month == item.label && 'text-slate-900 font-semibold'} text-gray-500`}>{item.value}</p>
               </div>
               {(index !== (months.length - 1)) &&
                 <div className={`${eligibleMonths[index] ?  isEligible(item.label, index) ? 'border-[#359602]' : 'border-red-200' : 
-                'border-gray-200'} border-b-2 sm:w-5 md:w-8`} />
+                'border-gray-200'} border-b-2 sm:w-5 md:w-full flex-1 hidden sm:block
+                 ${smallDevice && index == 8 && 'border-b-0'}`} />
               }
             </button>
           ))}

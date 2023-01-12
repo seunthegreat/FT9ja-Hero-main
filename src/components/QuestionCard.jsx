@@ -64,7 +64,7 @@ const QuestionCard = ({handleSelection, selectedChoice}) => {
   return (
     <div className='mx-5 flex flex-col'>
       
-      <div className='sm:mt-10 ss:mt-20 lg:mt-0 md:mt-0 mb-5'>
+      <div className=''>
         {showQuizTip &&
           <Tips
             title={tips.quiz.general.title}
@@ -76,15 +76,16 @@ const QuestionCard = ({handleSelection, selectedChoice}) => {
 
       <div className='flex flex-col border rounded-[10px] h-[100%]  items-center'>
   
-        <div className='flex flex-col  px-10 mt-10  w-full'>
+        <div className='flex flex-col  md:px-10 xs:px-5 mt-10  w-full'>
           <QuizCalendar />
             <Tips 
               type="secondary"
-              body={ quiz == null && tips.quiz.beforeQuiz || quiz == 'completed' && tips.quiz.afterQuiz } 
+              body={ quiz == null && tips.quiz.beforeQuiz || quiz == 'completed' && tips.quiz.afterQuiz
+              || quiz == 'start' && tips.quiz.quizStarted } 
             /> 
         </div>
 
-        <div className='flex flex-col w-full px-10 my-5'>
+        <div className='flex flex-col w-full  md:px-10 xs:px-5 my-5'>
           <div className='flex flex-row  w-full items-center justify-between'>
             <div className='flex flex-row'>
               <p className={`text-ss mr-2 text-gray-500`}>{currentMonthInfo.month} Quiz </p>
@@ -142,7 +143,8 @@ const QuestionCard = ({handleSelection, selectedChoice}) => {
           )}
         </div>
 
-        <div className='flex lg:flex-row md:flex-row sm:f ss:flex-col ss:flex-col-reverse  ss:flex-col w-full ss:p-5'>
+        <div className='flex lg:flex-row md:flex-row sm:f ss:flex-col ss:flex-col-reverse ss:flex-col xs:flex-col 
+          xs:flex-col-reverse w-full ss:p-5'>
         
           { quiz === 'start' && (
             <>

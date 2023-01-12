@@ -603,6 +603,7 @@ export const tips = {
       mark for the quiz is set at 60% and you are given unlimited attempts only within a month. Good luck, and let's get started!`
     },
     beforeQuiz: 'Take a quiz and score over 60% to become eligible for your monthly stipends!',
+    quizStarted: 'Take your time, focus on the question and make sure you are confident in your answer before submitting. Remember, you have a limited time to complete the quiz, so use it wisely.',
     afterQuiz: 'Click on the calendar month to display quiz summary!',
     failedQuiz: 'You were unable to redeem your stipends due to a low score in your quiz!',
   },
