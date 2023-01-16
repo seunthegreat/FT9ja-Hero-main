@@ -29,9 +29,9 @@ const Recommendations = ({data}) => {
 
   return(
     <>
-      <div className='flex grid grid-cols-3 gap-2 w-[70%] justify-evenly '>
+      <div className='flex grid md:grid-cols-3 xs:grd-cols-1 gap-2 w-[70%] justify-evenly '>
         {data.map((item, index) => (
-          <div key={index} className='border rounded-[10px] px-5 py-2 flex '>
+          <div key={index} className='border rounded-[10px] px-5 py-2 flex'>
             <div className='flex flex-row items-center'>
               <div className='rounded-full border w-5 h-5 items-center justify-center flex mr-2'>
                 <p className={`${text.small}`}>{index + 1}</p>

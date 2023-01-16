@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { text } from '../style';
 
 const Button = ({styles, textStyle, title, outline, small, smallest, square, onClick}) => (
   <button 
@@ -13,7 +14,7 @@ const Button = ({styles, textStyle, title, outline, small, smallest, square, onC
     }
     onClick={onClick}
   >
-    <p className={textStyle}>{title}</p>
+    <p className={`${text.normal} ${textStyle}`}>{title}</p>
   </button>
 )
 

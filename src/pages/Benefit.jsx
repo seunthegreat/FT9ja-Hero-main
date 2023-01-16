@@ -13,10 +13,10 @@ import { tips } from '../constants';
 import Modal from '@mui/material/Modal';
 
 const metricFields = [
-  {id: 'total-comm', label: "Total Commission", iconColor: "bg-[#3596021A]", type: 'money'},
-  {id: 'monthly-comm', label: "Monthly Commission", iconColor: "bg-[#8000801A]", type: "money"},
+  {id: 'total-comm', label: "Total Stipend", iconColor: "bg-[#3596021A]", type: 'money'},
+  {id: 'monthly-comm', label: "Referral Commission", iconColor: "bg-[#8000801A]", type: "money"},
   {id: 'merch', label: "FT9a Merch", iconColor: "bg-[#0000FF1A]", type: "merch"},
-  {id: 'trips', label: "Trips Won", iconColor: "bg-[#FF00001A]", type: "trips"},
+  {id: 'trips', label: "Gifts and Offers", iconColor: "bg-[#FF00001A]", type: "trips"},
 ];
 
 const referrals = 2;
@@ -59,7 +59,7 @@ const Benefits = () => {
 
         { openPaymentHistory && <HistoryModal type='payment'/> }
 
-        <div className='flex flex-col lg:px-10 xs:px-5'>
+        <div className='flex flex-col w-full px-5'>
           {showBenefitsTip &&
             <Tips
               title={tips.benefits.general.title}
@@ -68,7 +68,7 @@ const Benefits = () => {
             />
           }
 
-          <div className={`${layout.sectionItems} mt-0 md:mt-8 md:ml-0`}>
+          <div className={`${layout.sectionItems} ${showBenefitsTip ? 'lg:mt-0' : 'lg:mt-20 xs:mt-20'}  mt-0 md:mt-8 md:ml-0`}>
             <div className='border p-5 rounded-[10px] mb-10'>
               {ambassadorshipBenefits.map((item, index) => (
                 <ListCard data={item} key={index} />
@@ -90,7 +90,7 @@ const Benefits = () => {
               <div className='bg-dimGreen p-4 rounded'>
                 <div className='flex md:flex-row lg:flex-row xl:flex-row justify-between sm:flex-col ss:flex-col'>
                   <div>
-                    <p className={`${text.subHeading}`}>Stipend Commission</p>
+                    <p className={`${text.subHeading}`}>Upcoming Commission</p>
                     <p className={`${text.body} mt-2 mb-3 w-[80%]`}>{referrals !== 3 ?  message.custom : message.oneLeft}</p>
                   </div>
                   <div className='w-[100px] h-[100px] sm:my-5 ss:my-5'>

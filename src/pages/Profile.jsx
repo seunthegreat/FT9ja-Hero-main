@@ -54,10 +54,10 @@ const Profile = () => {
         <div className='fixed md:static bg-main-bg z-10 dark:bg-main-dark-bg navbar w-full'>
           <DNavbar route={"Profile"}/>
         </div>
-        <div className='flex flex-col lg:px-10 xs:px-5 sm:mt-20 ss:mt-10 xs:mt-5 md:mt-10'>
-          <h2 className="lg:mt-0 hidden sm:block ss:mt-5 xs:mt-10 lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl font-bold">
+        <div className='flex flex-col w-full px-5'>
+          {/* <h2 className="lg:mt-0 hidden sm:block ss:mt-5 xs:mt-10 lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl font-bold">
             Profile
-          </h2>
+          </h2> */}
           <div className='lg:my-10 xs:mt-20 ss:mt-10 rounded-[5px] border overflow-hidden'>
             <img src={profileBanner} className="h-[80%] w-full hidden sm:block" alt="Profile banner" />
             <div className='m-10 flex flex-row items-center'>

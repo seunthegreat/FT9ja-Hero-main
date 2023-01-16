@@ -65,7 +65,7 @@ const Activities = () => {
           <DNavbar route={"Activities"}/>
         </div>
 
-        <div className='flex flex-col lg:px-10 xs:px-5'>
+        <div className='flex flex-col w-full  px-5'>
         
           { showActivitiesTip &&
             <Tips
@@ -74,10 +74,10 @@ const Activities = () => {
               onClick={() => setShowActivitiesTip(false)}
             />
           }
-
-          <div className={`${layout.sectionItems} xs:mt-0 md:mt-8 md:ml-0 
-          flex lg:flex-row md:flex-row sm:f ss:flex-col ss:flex-col-reverse ss:flex-col xs:flex-col 
-          xs:flex-col-reverse w-full ss:p-5`}>
+          
+          <div className={`${layout.sectionItems} ${showActivitiesTip ? 'lg:mt-0' : 'lg:mt-0 xs:mt-20'} 
+            xs:mt-0 md:mt-8 md:ml-0 flex lg:flex-row md:flex-row sm:f ss:flex-col ss:flex-col-reverse ss:flex-col xs:flex-col 
+            xs:flex-col-reverse w-full py-5`}>
             <div className='border p-5 rounded-[10px] mb-10'>
               {activities.map((item, index) => (
                 <ListCard data={item} key={index} />

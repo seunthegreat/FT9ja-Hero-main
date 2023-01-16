@@ -63,8 +63,7 @@ const steps = [
     contents: [],
     extra: []
   },
-]
-
+];
 
 const Overview = () => {
   const { activeMenu } = useStateContext();
@@ -82,12 +81,12 @@ const Overview = () => {
       }
 
       <div className={
-            `dark:bg-main-bg bg-main-bg min-h-screen w-full 
-            ${activeMenu ? 'md:ml-72': 'flex-2'}`}
+        `dark:bg-main-bg bg-main-bg min-h-screen w-full 
+          ${activeMenu ? 'md:ml-72': 'flex-2'}`}
       > 
-      <div className='fixed z-10 md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
-        <DNavbar route={"Overview"}/>
-      </div>
+        <div className='fixed z-10 md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+          <DNavbar route={"Overview"}/>
+        </div>
 
         <div className='flex flex-col'>
           <h2 className="lg:mb-5 md:mb-5 xs:mt-20 lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl font-bold text-center">
@@ -105,7 +104,7 @@ const Overview = () => {
             How to become a FT9ja Ambassador
           </h2>
             {steps.map((step, index) => (
-              <CriteriaList step={step} index={index}/>
+              <CriteriaList step={step} index={index} key={index}/>
             ))}
         </div>
       </div>

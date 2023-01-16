@@ -47,9 +47,10 @@ const QuizResult = () => {
   
   return(
     <div id="results" className='m-5 flex flex-col h-screen'>
-      <div className='flex flex-col border rounded-[10px] h-[80%] justify-center items-center md:mt-0 sm:mt-20'>
-        <p className={`${text.heading} font-semibold`}>{score >= 60 ? passed.title : failed.title}</p>
-        <div className='w-[100px] h-[100px] sm:my-10 ss:my-5'>
+      <div className='flex flex-col border rounded-[10px] justify-center items-center 
+                      md:mt-0 sm:mt-20 xs:mt-20'>
+        <p className={`${text.heading} font-semibold md:my-10 xs:my-10`}>{score >= 60 ? passed.title : failed.title}</p>
+        <div className='w-[100px] h-[100px] sm:my-10 ss:my-5 xs:my-5'>
           <CircularProgressbar 
             value={score} 
             text={`${score}%`} 
@@ -61,7 +62,7 @@ const QuizResult = () => {
           />
         </div>
 
-        <p className={`${text.body} mb-5 w-[50%] text-center`}>{score >= 60 ? passed.body : failed.body}</p>
+        <p className={`${text.body} mb-5 md:w-[50%] xs:w-[85%] text-center`}>{score >= 60 ? passed.body : failed.body}</p>
         
         { score >= 60 ? 
           <div className='flex flex-col'>
