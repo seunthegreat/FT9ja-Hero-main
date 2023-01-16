@@ -68,7 +68,8 @@ const Benefits = () => {
             />
           }
 
-          <div className={`${layout.sectionItems} ${showBenefitsTip ? 'lg:mt-0' : 'lg:mt-20 xs:mt-20'}  mt-0 md:mt-8 md:ml-0`}>
+          <div className={`${layout.sectionItems} ${showBenefitsTip ? 'lg:mt-0' : 'lg:mt-20 xs:mt-20'}
+            mt-0 md:mt-8 md:ml-0`}>
             <div className='border p-5 rounded-[10px] mb-10'>
               {ambassadorshipBenefits.map((item, index) => (
                 <ListCard data={item} key={index} />
