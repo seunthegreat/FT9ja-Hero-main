@@ -74,7 +74,7 @@ const QuestionCard = ({handleSelection, selectedChoice}) => {
         }
       </div>
 
-      <div className={`${!showQuizTip && 'mt-20'} flex flex-col border rounded-[10px] h-[100%]  items-center xs:mb-10`}>
+      <div className={`${showQuizTip ? 'mt-0' : 'mt-5'} flex flex-col border rounded-[10px] h-[100%]  items-center xs:mb-10`}>
   
         <div className={`flex flex-col  md:px-10 xs:px-5 mt-10 w-full`}>
           <QuizCalendar />

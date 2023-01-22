@@ -18,10 +18,13 @@ import Quiz from "./Quiz";
 import Videos from "./Videos";
 import VideoTabBar from "./VideoTabBar";
 import HistoryModal from "./HistoryModal";
+import CashOutModal from "./CashOutModal";
+import ListCard from "./ListCard";
+import MiniStatsCard from "./MiniStatsCard"
 
 export {
   Navbar, CTA, Footer, Hero, Benefits, HowItWorks, Faqs,
   Sidebar, DNavbar, QuestionCard, QuizResult, Recommendations,
   Tips, QuizTimer, Button, QuizCalendar, Quiz, Videos, VideoTabBar,
-  HistoryModal,
+  HistoryModal, CashOutModal, ListCard, MiniStatsCard
 };

@@ -11,6 +11,7 @@ module.exports = {
         fadeGreen: "rgba(0, 128, 0, 0.1)",
         button: "#359602",
         dimWhite: "rgba(255, 255, 255, 0.7)",
+        offWhite: "#F4F4F4",
         dimBlue: "rgba(9, 151, 124, 0.1)",
         dimGreen: "rgba(53, 150, 2, 0.03)",
       },

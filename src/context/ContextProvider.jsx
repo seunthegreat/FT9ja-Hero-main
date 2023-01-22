@@ -22,6 +22,13 @@ const advocateState = {
 
 const benefitState = {
   showBenefitsTip: true,
+  //--CashOut--//
+  cashOut: {
+    transferPage: 'main', //--> main || bank-transfer-main || bank-transfer-confirm
+    action: null, //--> 'adding'
+    bankInfo: {bankName: null, accNum: null},
+    confirmWithdrawal: false,
+  }
 };
 
 const quizRecord = [
@@ -96,6 +103,11 @@ export const ContextProvider = ({children}) => {
 
   //--Benefits--//
   const [showBenefitsTip, setShowBenefitsTip] = useState(benefitState.showBenefitsTip);
+  const [openCashOutModal, setOpenCashOutModal] = useState(false);
+  const [transferPage, setTransferPage] = useState(benefitState.cashOut.transferPage);
+  const [addBank, setAddBank] = useState(benefitState.cashOut.bankInfo.accNum == null ? false : true);
+  const [bankInfo, setBankInfo] = useState(benefitState.cashOut.bankInfo);
+  const [confirmWithdrawal, setConfirmWithdrawal] = useState(benefitState.cashOut.confirmWithdrawal);
 
   //--History--//
   const [openPaymentHistory, setOpenPaymentHistory] = React.useState(false);
@@ -131,6 +143,9 @@ export const ContextProvider = ({children}) => {
 
           //--Benefits--//
           showBenefitsTip, setShowBenefitsTip,
+          openCashOutModal ,setOpenCashOutModal, //--> Cashout
+          transferPage, setTransferPage, addBank,
+          setAddBank, bankInfo, setBankInfo, confirmWithdrawal, setConfirmWithdrawal,
 
           //--History Modal--//
           openPaymentHistory, setOpenPaymentHistory,

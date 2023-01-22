@@ -1,16 +1,14 @@
 import React from 'react';
 import { useStateContext } from '../context/ContextProvider';
-import { Sidebar, DNavbar, Tips, HistoryModal } from '../components';
-import styles, { layout, text } from '../style';
-import ListCard from '../components/ListCard';
+import { Sidebar, DNavbar, Tips, HistoryModal, Button, MiniStatsCard,
+  CashOutModal, ListCard } from '../components';
+import { layout, text } from '../style';
 import { ambassadorshipBenefits } from '../constants';
-import Button from '../components/Button';
-import MiniStatsCard from '../components/MiniStatsCard';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { trackBenefits } from '../assets';
 import { tips } from '../constants';
-import Modal from '@mui/material/Modal';
+
 
 const metricFields = [
   {id: 'total-comm', label: "Total Stipend", iconColor: "bg-[#3596021A]", type: 'money'},
@@ -36,7 +34,8 @@ const calculatePercentage = (referrals) => {
 
 const Benefits = () => {
   
-  const { activeMenu, showBenefitsTip, setShowBenefitsTip, setOpenPaymentHistory, openPaymentHistory } = useStateContext();
+  const { activeMenu, showBenefitsTip, setShowBenefitsTip, 
+    setOpenPaymentHistory, openPaymentHistory, openCashOutModal, setOpenCashOutModal } = useStateContext();
   return (
     <div className='flex relative'>
       {activeMenu ? (
@@ -58,6 +57,7 @@ const Benefits = () => {
         </div>
 
         { openPaymentHistory && <HistoryModal type='payment'/> }
+        { openCashOutModal && <CashOutModal /> }
 
         <div className='flex flex-col w-full px-5'>
           {showBenefitsTip &&
@@ -107,7 +107,7 @@ const Benefits = () => {
                   </div>
                 </div>
                 <div className='flex flex-row'>
-                  <Button title={"Cashout"} smallest styles={'mr-2'}/>
+                  <Button title={"Cashout"} smallest onClick={() => setOpenCashOutModal(true)} styles={'mr-2'}/>
                   <Button title={"History"} smallest onClick={() => setOpenPaymentHistory(true)}/>
                 </div>
               </div>
