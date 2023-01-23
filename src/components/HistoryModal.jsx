@@ -68,7 +68,7 @@ const HistoryModal = ({type}) => {
                               </div>
                               <div className='py-3 flex flex-row'>
                                   <div className={`${item.status == 'approved' && 'bg-fadeGreen' || item.status == 'declined' && 'bg-red-200'
-                                      || item.status == 'pending' && 'bg-orange-200'} py-1 w-3/4 flex items-center justify-center rounded`}>
+                                      || item.status == 'pending' && 'bg-orange-200'} py-1 w-3/4 flex flex-col items-center justify-center rounded`}>
                                       <p className={`${item.status == 'approved' ? 'text-[#008000]' : 'text-black'} xs:text-xs 
                                        text-ss sm:text-xs font-light text-gray-500`}>{item.status}</p>
                                   </div>

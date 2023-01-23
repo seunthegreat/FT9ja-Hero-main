@@ -63,7 +63,7 @@ const paymentMethods = [
 
 const CashOutModal = () => {
   const { openCashOutModal, setOpenCashOutModal, transferPage, setTransferPage,
-   addBank, setAddBank, bankInfo, setBankInfo, confirmWithdrawal,
+   screenSize, setAddBank, bankInfo, setBankInfo, confirmWithdrawal,
     setConfirmWithdrawal } = useStateContext();
 
    const [bankName, setBankName] = useState(null);
@@ -84,7 +84,7 @@ const CashOutModal = () => {
           className='flex flex-col justify-center items-center'
       >
         <div className="flex flex-col rounded-[10px] bg-offWhite lg:w-[60%]
-          xs:w-[100%] ss:h-[100%] overflow-hidden lg:p-10 md:p-10 xs:px-0 xs:py-10">
+          xs:w-[100%] ss:h-[100%] xs:h-[100%] overflow-hidden lg:p-10 md:p-10 xs:px-0 xs:py-10">
           { transferPage == "main" && (
             <>
               <div className='flex flex-col w-full justify-center items-center'>
@@ -115,8 +115,8 @@ const CashOutModal = () => {
 
           { transferPage == "bank-transfer-main" && (
             <>
-              <div className='flex flex-col w-full justify-center items-center'>
-                <div className='flex flex-row  w-full items-center justify-between border-b-2 pb-5'>
+              <div className='flex flex-col w-full justify-center items-center lg:px-0 md:px-0 xs:px-5'>
+                <div className='flex flex-row w-full items-center justify-between border-b-2 pb-5'>
                   <button
                     onClick={() => setTransferPage('main')} 
                     className='w-8 h-8 bg-button rounded hover:scale-110'>
@@ -130,17 +130,18 @@ const CashOutModal = () => {
                   </button>
                 </div>
 
-                { !bankInfo.bankName && !bankInfo.accNum  && (
+                { !bankInfo.bankName && !bankInfo.accNum && screenSize > 1060 && (
                      <div className='w-full'>
                        <Tips 
                          type="secondary"
-                         body={content.tips.noAccount} 
+                         body={content.tips.noAccount}
+                         style={'mb-0'}
                      /> 
                     </div>
                   )
                 }
 
-                <div className='flex flex-col w-full  bg-white p-5 px-10 mt-5'>
+                <div className='flex flex-col w-full  bg-white p-5 ss:px-10 xs:px-5 mt-5'>
 
                   <div className='flex flex-row items-center justify-between w-full mt-5'>
                     <p className={`${text.subHeading}`}>Bank Info</p>
@@ -149,7 +150,7 @@ const CashOutModal = () => {
 
                   { !bankInfo.bankName && !bankInfo.accNum ? (
                     <>
-                      <div className='flex flex-col grid grid-cols-2 gap-4 items-center my-5'>
+                      <div className='flex flex-col grid ss:grid-cols-2 :grid-cols-1 gap-4 items-center my-5'>
                         <Select options={banksArr} onChange={ e => setBankName(e.value)} />
                         <input 
                           placeholder="Account Number" 

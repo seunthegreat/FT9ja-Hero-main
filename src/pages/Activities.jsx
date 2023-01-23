@@ -77,7 +77,7 @@ const Activities = () => {
           
           <div className={`${layout.sectionItems} ${showActivitiesTip ? 'lg:mt-0' : 'lg:mt-0 xs:mt-20'} 
             xs:mt-0 md:mt-8 md:ml-0 flex lg:flex-row md:flex-row sm:f ss:flex-col ss:flex-col-reverse ss:flex-col xs:flex-col 
-            xs:flex-col-reverse w-full py-5`}>
+            xs:flex-col-reverse w-full `}>
             <div className='border p-5 rounded-[10px] mb-10'>
               {activities.map((item, index) => (
                 <ListCard data={item} key={index} />

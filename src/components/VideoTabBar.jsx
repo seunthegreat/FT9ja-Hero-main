@@ -7,7 +7,7 @@ const VideoTabBar = () => {
   const { activeTab, setActiveTab, showLearningTip } = useStateContext();
 
   return (
-    <div className={`${!showLearningTip && 'mt-20' } flex flex-row items-center justify-center`}>
+    <div className={`${!showLearningTip ? 'lg:mt-5 xs:mt-20' : 'lg:mt-0 xs:mt-0'} flex flex-row items-center justify-center`}>
       {tabs.map((item, index) => (
         <button
           onClick={() => setActiveTab(item.value)}

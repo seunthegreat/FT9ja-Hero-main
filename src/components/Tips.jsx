@@ -3,8 +3,8 @@ import { GrClose } from "react-icons/gr";
 import { text } from '../style';
 
 const Tips = ({title, body, onClick, type, style}) => (
-  <div className={`${style} ${type ? type && 'bg-slate-700' : 'bg-[#359602]'} flex flex-row  rounded-[10px] p-5
-    justify-between items-center sm:mt-20 ss:mt-20 lg:mt-5 md:mt-5 mb-5 xs:mt-20`}>
+  <div className={`${type ? type && 'bg-slate-700' : 'bg-[#359602]'} flex flex-row rounded-[10px] p-5
+    justify-between items-center sm:mt-20 ss:mt-20 lg:mt-5 md:mt-5 mb-5 xs:mt-20 ${style}`}>
     <div className='w-[95%]'>
       {title && <p className={`${text.subHeading} text-white mb-2`}>{title}</p>}
       {body && <p className={`${text.small} text-white`}>{body}</p>}

@@ -75,7 +75,7 @@ const Advocate = () => {
             />
           }
               
-          <div className={`${showAdvocateTip ? 'lg:mt-0' : 'lg:mt-20 xs:mt-20'} h-5/6 xl:h-3/4 
+          <div className={`${showAdvocateTip ? 'lg:mt-0' : 'lg:mt-5 xs:mt-20'} h-5/6 xl:h-3/4 
             lg:w-full w-full border rounded-[10px] py-10 flex 
             flex-col justify-center items-center`}>
             <h2 className="mb-4 text-3xl xs:text-xl font-bold text-center">Proof Of Advocacy</h2>
