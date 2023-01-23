@@ -1,6 +1,7 @@
 import React from 'react';
 import { text } from '../style';
-import { addCommas } from '../functions';
+import { methods } from '../functions';
+const { addCommas } = methods.strings;
 
 const metrics = {
   totalCommission: 120000,

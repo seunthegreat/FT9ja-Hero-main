@@ -58,7 +58,7 @@ const Profile = () => {
           {/* <h2 className="lg:mt-0 hidden sm:block ss:mt-5 xs:mt-10 lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl font-bold">
             Profile
           </h2> */}
-          <div className='lg:my-10 xs:mt-20 ss:mt-10 rounded-[5px] border overflow-hidden'>
+          <div className='lg:my-5 xs:mt-20 ss:mt-10 rounded-[5px] border overflow-hidden'>
             <img src={profileBanner} className="h-[80%] w-full hidden sm:block" alt="Profile banner" />
             <div className='m-10 flex flex-row items-center'>
               <img src={people02} className="w-[78px] h-[78px] rounded-full bg-gray-200" alt="Avi" />

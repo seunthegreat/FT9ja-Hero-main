@@ -3,8 +3,9 @@ import Modal from '@mui/material/Modal';
 import { text } from '../style';
 import { useStateContext } from '../context/ContextProvider';
 import { GrClose } from "react-icons/gr";
-import { addCommas } from '../functions';
+import { methods } from '../functions';
 
+//--Mock Data--//
 const paymentHistory = [
   { "id": 1, "date": "01/01/2022", "status": "approved", "amount": 40000},  
   { "id": 2, "date": "01/02/2022", "status": "declined", "amount": 40000 },  
@@ -13,14 +14,8 @@ const paymentHistory = [
   { "id": 5, "date": "01/05/2022", "status": "pending", "amount": 40000 }
 ];
 
-const formatDate = (inputDate) => {
-  let date = new Date(inputDate);
-  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const month = months[date.getMonth()];
-  const day = date.getDate();
-  const year = date.getFullYear();
-  return `${month} ${day}, ${year}`;
-};
+const { formatDate } = methods.date;
+const { addCommas } = methods.strings;
 
 const HistoryModal = ({type}) => {
   const { setOpenPaymentHistory } = useStateContext();

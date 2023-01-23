@@ -5,7 +5,8 @@ import { PayPal, Bank } from '../assets';
 import { Tips, Button } from ".";
 import { text } from '../style';
 import Select from 'react-select';
-import { addCommas } from '../functions';
+import { methods } from '../functions';
+const { addCommas } = methods.strings;
 
 const banksArr = [
   { "label": "UBA", "value": "United Bank for Africa" },

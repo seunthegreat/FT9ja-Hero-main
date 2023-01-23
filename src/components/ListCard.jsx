@@ -1,21 +1,8 @@
 import React from 'react';
 import { BsShareFill } from "react-icons/bs";
 
-//--function--//
-const convertDateToWords = (dateString) => {
-
-  const newDate = new Date(dateString);
-  //--Get the day of the week as a string (e.g. "Monday")--//
-  const dayOfWeek = newDate.toLocaleString('default', { weekday: 'long' });
-  //-- Get the month as a string (e.g. "October")--//
-  const month = newDate.toLocaleString('default', { month: 'long' });
-  //--Get the day of the month (e.g. 16)--//
-  const day = newDate.getDay();
-  //--Get the year (e.g. 2021)--//
-  const year = newDate.getFullYear();  
-  // Return the formatted string
-  return `${dayOfWeek}, ${month} ${day} ${year}`;
-};
+import { methods } from '../functions';
+const { convertDateToWords } = methods.date;
 
 const ListCard = ({data}) => (
   <div className='flex flex-row border-b-2 py-4 w-full'>
