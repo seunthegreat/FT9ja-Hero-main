@@ -28,6 +28,9 @@ const benefitState = {
     action: null, //--> 'adding'
     bankInfo: {bankName: null, accNum: null},
     confirmWithdrawal: false,
+  },
+  history: {
+    selection: 'stipend' //--> stipend, commission, merch, gifts
   }
 };
 
@@ -108,6 +111,7 @@ export const ContextProvider = ({children}) => {
   const [addBank, setAddBank] = useState(benefitState.cashOut.bankInfo.accNum == null ? false : true);
   const [bankInfo, setBankInfo] = useState(benefitState.cashOut.bankInfo);
   const [confirmWithdrawal, setConfirmWithdrawal] = useState(benefitState.cashOut.confirmWithdrawal);
+  const [historySelection, setHistorySelection] = useState(benefitState.history.selection);
 
   //--History--//
   const [openPaymentHistory, setOpenPaymentHistory] = React.useState(false);
@@ -146,6 +150,7 @@ export const ContextProvider = ({children}) => {
           openCashOutModal ,setOpenCashOutModal, //--> Cashout
           transferPage, setTransferPage, addBank,
           setAddBank, bankInfo, setBankInfo, confirmWithdrawal, setConfirmWithdrawal,
+          historySelection, setHistorySelection,
 
           //--History Modal--//
           openPaymentHistory, setOpenPaymentHistory,
