@@ -56,7 +56,7 @@ const Benefits = () => {
           <DNavbar route={"Benefit"}/>
         </div>
 
-        { openPaymentHistory && <HistoryModal type='payment'/> }
+        { openPaymentHistory && <HistoryModal type='payment' handleClose={() => setOpenPaymentHistory(false)} open={openPaymentHistory}/> }
         { openCashOutModal && <CashOutModal /> }
 
         <div className='flex flex-col w-full px-5'>

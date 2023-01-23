@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useStateContext } from '../context/ContextProvider';
-import { Sidebar, DNavbar, Tips } from '../components';
+import { Sidebar, DNavbar, Tips, HistoryModal } from '../components';
 import { activities } from '../constants';
 import { layout } from '../style';
 import ListCard from '../components/ListCard';
@@ -10,7 +10,10 @@ import { useDropzone } from 'react-dropzone';
 import { tips } from '../constants';
 
 const Activities = () => {
-  const { activeMenu, setShowActivitiesTip, showActivitiesTip } = useStateContext();
+  const { activeMenu, setShowActivitiesTip, showActivitiesTip, showActivityHistory,
+    setShowActivityHistory } = useStateContext();
+
+  console.log(showActivityHistory);
   const inputRef = useRef(null);
   const {getRootProps, getInputProps, isDragActive } = useDropzone({noClick: true});
   
@@ -84,6 +87,8 @@ const Activities = () => {
               ))}
             </div>
 
+            { showActivityHistory && <HistoryModal type='payment' open={showActivityHistory} handleClose={() => setShowActivityHistory(false)}/> }
+
             <div className='h-full'>
               <div className='h-screen  flex flex-col items-center'>
                 <div className='h-5/6 xl:h-3/4 lg:w-full w-full border rounded-[10px] m-5 sm:m-0 py-10 flex flex-col items-center'>
@@ -106,7 +111,7 @@ const Activities = () => {
                       <p className='text-gray-500 text-xs mt-4'>Maximum file size of 50mb</p>
                     </div>
                     <div className='bg-red-200 mt-10 flex'>
-                      <Button title={"View History"} smallest styles={'absolute right-8'}/>
+                      <Button title={"View History"} smallest styles={'absolute right-8'} onClick={() => setShowActivityHistory(true)}/>
                     </div>
                   </div>
                 </div>

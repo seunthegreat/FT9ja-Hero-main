@@ -14,6 +14,7 @@ const learningState = {
 
 const activitiesState = {
   showActivitiesTip: true,
+  showActivityHistory: false,
 };
 
 const advocateState = {
@@ -100,6 +101,7 @@ export const ContextProvider = ({children}) => {
 
   //--Activities--//
   const [showActivitiesTip, setShowActivitiesTip] = useState(activitiesState.showActivitiesTip);
+  const [showActivityHistory, setShowActivityHistory] = useState(activitiesState.showActivityHistory);
 
   //--Advocate--//
   const [showAdvocateTip, setShowAdvocateTip] = useState(advocateState.showAdvocateTip);
@@ -140,7 +142,7 @@ export const ContextProvider = ({children}) => {
           showQuizTip, setShowQuizTip,
 
           //--Activities--//
-          showActivitiesTip, setShowActivitiesTip,
+          showActivitiesTip, setShowActivitiesTip, showActivityHistory, setShowActivityHistory,
 
           //--Advocate--//
           showAdvocateTip, setShowAdvocateTip,

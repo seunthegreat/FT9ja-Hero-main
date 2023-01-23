@@ -5,79 +5,19 @@ import { text } from '../style';
 import { useStateContext } from '../context/ContextProvider';
 import { GrClose } from "react-icons/gr";
 import { methods } from '../functions';
+import { Table } from "./index.js";
+import { tableFields, selectionData, mock } from '../constants';
 
-const tableFields = {
-  stipends: [
-    {id: 0, label: "Date"},
-    {id: 1, label: "Status"},
-    {id: 2, label: "Amount"},
-  ],
-  commissions: [
-    {id: 0, label: "Referee"},
-    {id: 1, label: "Amount"},
-    {id: 2, label: "Date"},
-    {id: 3, label: "Status"},
-  ],
-  merch: [
-    {id: 0, label: "Name"},
-    {id: 1, label: "Date"},
-    {id: 2, label: "Method"},
-    {id: 2, label: "Quantity"},
-    {id: 3, label: "Status"},
-  ],
-  gifts: [
-    {id: 0, label: "Name"},
-    {id: 1, label: "Earned"},
-    {id: 2, label: "Expires"},
-    {id: 3, label: "Status"},
-  ],
-};
-    
-const { commissions, stipends, merch, gifts } = tableFields
+//--Data--//
+const { commissions, stipends, merch, gifts } = tableFields.benefitsHistory;
+const { historyTypes } = selectionData;
+const { paymentHistory, commissionHistory, merchHistory, giftHistory } = mock.benefits;
 
-const historyTypes = [
-  { "label": "Total Stipend", "value": "stipend" },
-  { "label": "Referral Commission", "value": "commission" },
-  { "label": "FT9a Merch", "value": "merch" },
-  { "label": "Gifts and Offers", "value": "gifts" },
-];
-
-//--Mock Data--//
-const paymentHistory = [
-  { "id": 1, "date": "01/01/2022", "status": "approved", "amount": 40000},  
-  { "id": 2, "date": "01/02/2022", "status": "declined", "amount": 40000 },  
-  { "id": 3, "date": "01/03/2022", "status": "approved", "amount": 40000 },
-  { "id": 4, "date": "01/04/2022", "status": "approved", "amount": 40000 },
-  { "id": 5, "date": "01/05/2022", "status": "pending", "amount": 40000 }
-];
-
-const commissionHistory = [
-  { id: 1, referee: "John Smith", amount: 10000, date: "01/01/2023", status: "pending" },
-  { id: 2, referee: "Jane Doe", amount: 10000, date: "01/01/2023", status: "approved" },
-  { id: 3, referee: "Bob Johnson", amount: 10000, date: "01/01/2023", status: "pending" },
-  { id: 4, referee: "Emily Davis", amount: 10000, date: "01/01/2023", status: "approved" },
-  { id: 5, referee: "Michael Brown", amount: 10000, date: "01/01/2023", status: "pending" },
-  { id: 6, referee: "Sarah Miller", amount: 10000, date: "01/01/2023", status: "approved" },
-  { id: 7, referee: "David Wilson", amount: 10000, date: "01/01/2023", status: "pending" },
-  { id: 8, referee: "Jessica Moore", amount: 10000, date: "01/01/2023", status: "approved" }
-];
-
-const merchHistory = [
-  { "id": 1, "name": "T-Shirt", "date": "01/5/2023", "method": "Referral Commission", "quantity": 2, "status": "pending" },
-  { "id": 2, "name": "Coffee Mug", "date": "01/5/2023", "method": "Promotion", "quantity": 1, "status": "pending" },
-  { "id": 3, "name": "Water Bottle", "date": "01/5/2023", "method": "Points Redemption", "quantity": 1, "status": "shipped" },
-  { "id": 4, "name": "Hoodie", "date": "01/5/2023", "method": "Referral Commission", "quantity": 1, "status": "pending" }, 
-  { "id": 5, "name": "Poster", "date": "01/5/2023", "method": "Points Redemption", "quantity": 2, "status": "shipped" }
-];
-
-const giftHistory = [];
-
-const { formatDate } = methods.date;
+//--Function--//
 const { addCommas } = methods.strings;
 
-const HistoryModal = ({type}) => {
-  const { setOpenPaymentHistory, historySelection, setHistorySelection } = useStateContext();
-  const handleClose = () => setOpenPaymentHistory(false);
+const HistoryModal = ({type, handleClose, open}) => {
+  const {  historySelection, setHistorySelection } = useStateContext();
   return (
       <Modal
           open={open}
@@ -111,10 +51,10 @@ const HistoryModal = ({type}) => {
                       />
                   </div>
 
-                { historySelection == 'stipend' &&  <Table data={paymentHistory} tableFields={stipends} />}
-                { historySelection == 'commission' && <Table data={commissionHistory} tableFields={commissions} /> }
-                { historySelection == 'merch' &&  <Table data={merchHistory} tableFields={merch} /> }
-                { historySelection == 'gifts' && <Table data={giftHistory} tableFields={gifts} /> }
+                  { historySelection == 'stipend' &&  <Table data={paymentHistory} tableFields={stipends} />}
+                  { historySelection == 'commission' && <Table data={commissionHistory} tableFields={commissions} /> }
+                  { historySelection == 'merch' &&  <Table data={merchHistory} tableFields={merch} /> }
+                  { historySelection == 'gifts' && <Table data={giftHistory} tableFields={gifts} /> }
                   
               </div>
           ) }
@@ -135,32 +75,3 @@ const formatText = (column, item) => {
   if (column == 'amount') return addCommas(item)
   return item;
 };
-
-const Table = ({data, tableFields}) => (
-  <div className='flex flex-col w-full items-center justify-center items-center'>
-      <div className={`grid grid-flow-col grid-cols-${tableFields.length} border border-gray-200 bg-[#FBFBFB] w-full`}>
-        { tableFields.map((item, index) => (
-          <div key={index} className='sm:px-10 py-2'>
-           <p className={`${text.normal}`}>{item.label}</p>
-          </div>
-        ))}
-      </div>
-  
-      { data.map((item, index) => (
-          <div key={index} className={`grid grid-flow-col grid-cols-${tableFields.length} border border-t-0 border-gray-200 
-              bg-white w-full items-center justify-center`}>
-            {tableFields.map((column, index) => (
-              <div key={index} className='sm:px-10 py-2'>
-                <p className={`${statusStyling(column, item)} 
-                  md:text-ss sm:text-xs xs:text-xs font-light text-gray-500`}>{formatText(column.label.toLowerCase(), item[column.label.toLowerCase()])}</p>
-              </div>
-            ))}
-          </div>
-      ))}
-      { data.length == 0 && (
-          <div className='p-10'>
-            <p className={`text-sm font-light`}>No Record Found!</p>
-          </div>
-      )}
-    </div>
-  );

@@ -558,7 +558,7 @@ export const messages = {
         insights and tips to help you succeed. We hope you find these videos helpful and informative.`
     }
   }
-}
+};
 
 export const tips = {
   learning: {
@@ -606,5 +606,74 @@ export const tips = {
     quizStarted: 'Take your time, focus on the question and make sure you are confident in your answer before submitting. Remember, you have a limited time to complete the quiz, so use it wisely.',
     afterQuiz: 'Click on the calendar month to display quiz summary!',
     failedQuiz: 'You were unable to redeem your stipends due to a low score in your quiz!',
+  },
+};
+
+//--General
+export const tableFields = {
+  benefitsHistory: {
+    stipends: [
+      {id: 0, label: "Date"},
+      {id: 1, label: "Status"},
+      {id: 2, label: "Amount"},
+    ],
+    commissions: [
+      {id: 0, label: "Referee"},
+      {id: 1, label: "Amount"},
+      {id: 2, label: "Date"},
+      {id: 3, label: "Status"},
+    ],
+    merch: [
+      {id: 0, label: "Name"},
+      {id: 1, label: "Date"},
+      {id: 2, label: "Method"},
+      {id: 2, label: "Quantity"},
+      {id: 3, label: "Status"},
+    ],
+    gifts: [
+      {id: 0, label: "Name"},
+      {id: 1, label: "Earned"},
+      {id: 2, label: "Expires"},
+      {id: 3, label: "Status"},
+    ],
+  }
+};
+
+export const selectionData = {
+  historyTypes: [
+    { "label": "Total Stipend", "value": "stipend" },
+    { "label": "Referral Commission", "value": "commission" },
+    { "label": "FT9a Merch", "value": "merch" },
+    { "label": "Gifts and Offers", "value": "gifts" },
+  ],
+};
+
+export const mock = {
+  benefits: {
+    paymentHistory : [
+      { "id": 1, "date": "01/01/2022", "status": "approved", "amount": 40000},  
+      { "id": 2, "date": "01/02/2022", "status": "declined", "amount": 40000 },  
+      { "id": 3, "date": "01/03/2022", "status": "approved", "amount": 40000 },
+      { "id": 4, "date": "01/04/2022", "status": "approved", "amount": 40000 },
+      { "id": 5, "date": "01/05/2022", "status": "pending", "amount": 40000 }
+    ],
+    commissionHistory : [
+      { id: 1, referee: "John Smith", amount: 10000, date: "01/01/2023", status: "pending" },
+      { id: 2, referee: "Jane Doe", amount: 10000, date: "01/01/2023", status: "approved" },
+      { id: 3, referee: "Bob Johnson", amount: 10000, date: "01/01/2023", status: "pending" },
+      { id: 4, referee: "Emily Davis", amount: 10000, date: "01/01/2023", status: "approved" },
+      { id: 5, referee: "Michael Brown", amount: 10000, date: "01/01/2023", status: "pending" },
+      { id: 6, referee: "Sarah Miller", amount: 10000, date: "01/01/2023", status: "approved" },
+      { id: 7, referee: "David Wilson", amount: 10000, date: "01/01/2023", status: "pending" },
+      { id: 8, referee: "Jessica Moore", amount: 10000, date: "01/01/2023", status: "approved" }
+    ],
+    merchHistory : [
+      { "id": 1, "name": "T-Shirt", "date": "01/5/2023", "method": "Referral Commission", "quantity": 2, "status": "pending" },
+      { "id": 2, "name": "Coffee Mug", "date": "01/5/2023", "method": "Promotion", "quantity": 1, "status": "pending" },
+      { "id": 3, "name": "Water Bottle", "date": "01/5/2023", "method": "Points Redemption", "quantity": 1, "status": "shipped" },
+      { "id": 4, "name": "Hoodie", "date": "01/5/2023", "method": "Referral Commission", "quantity": 1, "status": "pending" }, 
+      { "id": 5, "name": "Poster", "date": "01/5/2023", "method": "Points Redemption", "quantity": 2, "status": "shipped" }
+    ],
+    giftHistory :[],
   },
 }
