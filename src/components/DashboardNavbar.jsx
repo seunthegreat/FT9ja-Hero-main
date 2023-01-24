@@ -57,9 +57,8 @@ const DNavbar = ({route}) => {
             color="gray"
             icon={<RiNotification3Line />}
           /> 
-
-        { showNotification && <Notification />}
         </div>
+        { showNotification && <Notification />}
     </div>
   )
 }

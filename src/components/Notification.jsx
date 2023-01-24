@@ -39,13 +39,13 @@ let notifications = [
 const Notification = () => {
   const { setShowNotification } = useStateContext();
   return (
-    <div className='z-10 bg-white p-6 shadow md:w-[40%] ss:w-[50%] xs:w-[100%] h-[100%] sm:h-auto ss:h-[100%] 
+    <div className='flex flex-col bg-white z-10 p-6 shadow md:w-[40%] ss:w-[50%] xs:w-[100%] ss:h-auto xs:h-screen
       ss:absolute ss:top-5 ss:right-4 xs:absolute xs:right-0 xs:top-0 ss:mx-4 ss:my-4 rounded-[10px]'>
       <div className='flex flex-row justify-between mb-5'>
         <p className={`${text.normal}`}>Notifications</p>
         <div className=''>
           <button
-            className='hover:scale-105 w-[25px] h-[25px] bg-white items-center  justify-center flex rounded-full'
+            className='hover:scale-105 w-[25px] h-[25px] bg-white items-center justify-center flex rounded-full'
             onClick={ () => setShowNotification(false)}
           >
             <GrClose />
@@ -54,7 +54,7 @@ const Notification = () => {
       </div>
 
       {  notifications.map((item, index) => (
-          <div key={index} className='flex flex-row items-center justify-center w-full'>
+          <div key={index} className='flex flex-row items-center justify-center w-full '>
             <div className={`w-[5px] h-[5px] ${!item.read ? 'bg-[#359602]' : 'bg-gray-200'} rounded-full mr-3`} />
             <div className='flex flex-col py-2 border-b w-full'>
               <p className={`${text.body}`}>{item.message}</p>
