@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from './Button';
 import { text } from '../style';
 import { useStateContext } from '../context/ContextProvider';
@@ -23,11 +23,18 @@ const showToastMessage = (message) => {
 const QuizTimer = () => {
   const { quizDuration, setQuiz , time, setTime, timer, selectedChoice,  
     quizQuestions, setPage, setScore, passMark, setHistory, currentMonthInfo,
-    attempts, setShowCalendar, quizRecord, history, setCurrentMonthInfo } = useStateContext();
+    attempts, setShowCalendar, quizRecord, history, setCurrentMonthInfo,
+    isTimeUp } = useStateContext();
 
   let hours = Math.floor(time / 3600);
   let minutes = Math.floor(time / 60);
   let seconds = time % 60;
+
+  useEffect(() => {
+    if (isTimeUp) {
+      handleStop();
+    }
+  }, [time, isTimeUp]);
 
   const handleStop = () => {
     const result = calculateQuizResult( quizQuestions, selectedChoice);
@@ -63,6 +70,16 @@ const QuizTimer = () => {
     }
   };
 
+  const formatTime = (timeInSeconds) => {
+    if (timeInSeconds < 60) {
+        return timeInSeconds + ' Seconds';
+    } else if (timeInSeconds < 3600) {
+        return Math.floor(timeInSeconds / 60) + ' Minutes';
+    } else if (timeInSeconds < 86400) {
+        return Math.floor(timeInSeconds / 3600) + ' Hours';
+    } 
+  };
+
   const updateCurrentMonthInfo = (query, record, score, attempts) => {
     let result = search(query, record, 'month');
     let { id, name, description, month } = result;
@@ -80,7 +97,7 @@ const QuizTimer = () => {
     <div className='flex-2 flex flex-col lg:w-1/4 md:w-1/4 sm:ml-3 ss:w-full '>
       <div className='flex md:flex-col items-center justify-evenly  bg-dimGreen p-4 rounded ss:flex-row'>
         <p className={`text-sm text-gray-500 lg:mt-5 md:text-center sm:text-ss mb-3 md:w-full lg:w-full 
-        ss:w-full xs:w-full`}>Duration - {quizDuration} minutes</p>
+        ss:w-full xs:w-full`}>Duration - {formatTime(quizDuration)}</p>
         <div className='w-full ss:[40%] flex flex-row my-5 justify-center '>
           {timerFields.map(((item, index) => (
             <div key={index} className={`flex flex-col items-center  ${index !== timerFields.length - 1 && 'mr-2'}`}>
@@ -97,11 +114,11 @@ const QuizTimer = () => {
         </div>
 
 
-        <div className='flex flex-col w-full ss:w-[40%] lg:w-full hidden ss:block'>
+        <div className='flex flex-col w-full ss:w-[40%] lg:w-full hidden ss:block '>
           <Button
             title={'Submit'}
             small
-            styles={'lg:rounded ss:rounded-[50px]'}
+            styles={'lg:rounded ss:rounded-[50px] w-full'}
             onClick={() => handleStop()}
           />
         </div>

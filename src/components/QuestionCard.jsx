@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
-import ReactPlayer from 'react-player';
+import React, { useEffect, useState, useRef } from 'react';
 import { text, layout } from '../style';
 import { useStateContext } from '../context/ContextProvider';
 import { QuizTimer, QuizCalendar, Tips, Button, Quiz} from './index';
 import { search } from '../functions/Quiz';
 import { tips } from '../constants';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const choicesLabel = (index) => {
   if (index == 0 ) return 'A';
@@ -33,19 +34,56 @@ const getDuration = (x) => {
 
 const QuestionCard = ({handleSelection, selectedChoice}) => {
 
-  const { showQuizTip, setShowQuizTip, quiz, setQuiz , 
+  const { showQuizTip, setShowQuizTip, quiz, setQuiz ,time,
     setTime, timer,  quizDuration, setShowCalendar, 
-    currentMonthInfo, history, passMark } = useStateContext();
+    currentMonthInfo, history, passMark, isTimeUp, setIsTimeUp } = useStateContext();
+
+    const intervalId = useRef(null);
 
   const duration = getDuration(quizDuration);
+
+  // const handleStart = () => {
+  //   setShowCalendar(false); //--> Hide Calendar
+  //   setQuiz('start');
+  //   timer.current = setInterval(()=> {
+  //     setTime((prevTime) => prevTime - 1);
+  //   }, 1000)
+  // };
 
   const handleStart = () => {
     setShowCalendar(false); //--> Hide Calendar
     setQuiz('start');
-    timer.current = setInterval(()=> {
-      setTime((prevTime) => prevTime - 1);
-    }, 1000)
   };
+
+  const showToastMessage = (message) => {
+  toast.error(message, {
+    position: toast.POSITION.TOP_RIGHT
+  });
+  };
+
+
+
+  useEffect(() => {
+    if (quiz === 'start') {
+      setShowCalendar(false);
+      intervalId.current = setInterval(() => {
+        if (time <= 0) {
+          setIsTimeUp(true);
+          clearInterval(intervalId.current);
+        } else if (time <= 10) { // show a warning message
+          console.log(`Time is almost up, Only ${time} seconds remaining`);
+          setTime(time - 1);
+        } else {
+          setTime(time - 1);
+        }
+      }, 1000);
+    }
+
+    if (isTimeUp) {
+
+    }
+    return () => clearInterval(intervalId.current);
+  }, [quiz, time]);
 
   const getQuizSummary = () => {
     let { id } = currentMonthInfo;
@@ -153,6 +191,7 @@ const QuestionCard = ({handleSelection, selectedChoice}) => {
             </>
           )}
            {/* <QuizCompleted /> */}
+           <ToastContainer />
         </div>
       </div>
   

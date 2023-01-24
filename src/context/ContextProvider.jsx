@@ -47,7 +47,7 @@ const quizRecord = [
 const quizState = {
   quizQuestions: quiz,
   showQuizTip: true,
-  duration: 5, //-> Quiz duration in minutes
+  duration: 15, //-> Quiz duration in seconds
   quiz: null, //-> 'start', 'inProgress' 'completed'
   page : 'main', //-> 'main' | 'result' | 
   currentQuizIndex: 0,
@@ -78,7 +78,8 @@ export const ContextProvider = ({children}) => {
   const [page, setPage] = useState(quizState.page);
   const [showQuizTip, setShowQuizTip] = useState(quizState.showQuizTip);
   const [quiz, setQuiz] = useState(quizState.quiz);
-  const [time, setTime] = useState(quizState.duration * 60) //-> Initialize time in seconds
+  const [time, setTime] = useState(quizState.duration) //-> Initialize time in seconds
+  const [isTimeUp, setIsTimeUp] = useState(false);
   const [currentQuizIndex, setCurrentQuizIndex] = useState(quizState.currentQuizIndex);
   const [selectedChoice, setSelectedChoice] = useState(quizState.selectedChoice);
   const [showCalendar, setShowCalendar] = useState(quizState.showCalendar);
@@ -143,6 +144,7 @@ export const ContextProvider = ({children}) => {
           showCalendar, setShowCalendar, quizQuestions, history, setHistory,
           score, setScore, attempts, setAttempts, selectedMonth, setSelectedMonth,
           currentMonthInfo, setCurrentMonthInfo, quizRecord, passMark, setPassMark,
+          isTimeUp, setIsTimeUp,
 
           //--Learning--//
           showLearningTip, setShowLearningTip, activeTab, setActiveTab,

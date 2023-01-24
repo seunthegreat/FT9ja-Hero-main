@@ -6,7 +6,7 @@ import { useStateContext } from '../context/ContextProvider';
 
 const Recommendations = ({data}) => {
   const { setPage, setAttempts, selectedChoice, score, attempts, currentMonthInfo, 
-    setSelectedChoice, setCurrentQuizIndex, setQuiz } = useStateContext();
+    setSelectedChoice, setCurrentQuizIndex, setQuiz, setIsTimeUp } = useStateContext();
 
   const attempt = {
     id: attempts + 1,
@@ -23,6 +23,7 @@ const Recommendations = ({data}) => {
     setPage('main');
     setSelectedChoice([]); 
     setCurrentQuizIndex(0);
+    setIsTimeUp(false);
   };
 
   //console.log(currentMonthInfo)
