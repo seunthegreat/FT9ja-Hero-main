@@ -22,10 +22,12 @@ import CashOutModal from "./CashOutModal";
 import ListCard from "./ListCard";
 import MiniStatsCard from "./MiniStatsCard";
 import Table from "./Table";
+import Notification from "./Notification";
 
 export {
   Navbar, CTA, Footer, Hero, Benefits, HowItWorks, Faqs,
   Sidebar, DNavbar, QuestionCard, QuizResult, Recommendations,
   Tips, QuizTimer, Button, QuizCalendar, Quiz, Videos, VideoTabBar,
-  HistoryModal, CashOutModal, ListCard, MiniStatsCard, Table
+  HistoryModal, CashOutModal, ListCard, MiniStatsCard, Table,
+  Notification
 };

@@ -3,6 +3,7 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { RiNotification3Line } from 'react-icons/ri';
 import { useStateContext } from '../context/ContextProvider';
 import { Home, rightArrow } from '../assets';
+import Notification from './Notification';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor, svg }) => (
   <>
@@ -19,7 +20,8 @@ const NavButton = ({ title, customFunc, icon, color, dotColor, svg }) => (
 )
 
 const DNavbar = ({route}) => {
-  const {  setActiveMenu, handleClick, screenSize, setScreenSize } = useStateContext();
+  const {  setActiveMenu, handleClick, screenSize, setScreenSize, setShowNotification, 
+    showNotification } = useStateContext();
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -51,11 +53,12 @@ const DNavbar = ({route}) => {
           <NavButton 
             title="Notifications" 
             dotColor={"#03c9d7"}
-            customFunc={() => handleClick('notification')}
+            customFunc={() => setShowNotification(true)}
             color="gray"
             icon={<RiNotification3Line />}
           /> 
 
+        { showNotification && <Notification />}
         </div>
     </div>
   )

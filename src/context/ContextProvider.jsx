@@ -4,7 +4,8 @@ import { quiz } from "../constants";
 const StateContext = createContext();
 
 const initialState = { 
-  activeMenu: true
+  activeMenu: true,
+  showNotification: false,
 };
 
 const learningState = {
@@ -70,6 +71,9 @@ export const ContextProvider = ({children}) => {
   const [isClicked, setIsClicked] = useState(initialState);
   const [screenSize, setScreenSize] = useState(undefined);
 
+  //--Notification--//
+  const [showNotification, setShowNotification] = useState(initialState.showNotification);
+
   //--Quiz--//
   const [page, setPage] = useState(quizState.page);
   const [showQuizTip, setShowQuizTip] = useState(quizState.showQuizTip);
@@ -129,6 +133,9 @@ export const ContextProvider = ({children}) => {
         { 
           activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, 
           setScreenSize,
+
+          //--Notification--//
+          showNotification, setShowNotification,
 
           //--Quiz--//
           page, setPage, quiz, setQuiz, timer, time, setTime, quizDuration,

@@ -1,13 +1,14 @@
 import React from 'react';
 import { useStateContext } from '../context/ContextProvider';
 import { Sidebar, DNavbar, Tips, HistoryModal, Button, MiniStatsCard,
-  CashOutModal, ListCard } from '../components';
+  CashOutModal, ListCard, Notification } from '../components';
 import { layout, text } from '../style';
 import { ambassadorshipBenefits } from '../constants';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { trackBenefits } from '../assets';
 import { tips } from '../constants';
+
 
 
 const metricFields = [
@@ -34,8 +35,8 @@ const calculatePercentage = (referrals) => {
 
 const Benefits = () => {
   
-  const { activeMenu, showBenefitsTip, setShowBenefitsTip, 
-    setOpenPaymentHistory, openPaymentHistory, openCashOutModal, setOpenCashOutModal } = useStateContext();
+  const { activeMenu, showBenefitsTip, setShowBenefitsTip, setOpenPaymentHistory, 
+    openPaymentHistory, openCashOutModal, setOpenCashOutModal, showNotification } = useStateContext();
   return (
     <div className='flex relative'>
       {activeMenu ? (
@@ -55,6 +56,8 @@ const Benefits = () => {
          <div className='z-10 fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
           <DNavbar route={"Benefit"}/>
         </div>
+
+    
 
         { openPaymentHistory && <HistoryModal type='payment' handleClose={() => setOpenPaymentHistory(false)} open={openPaymentHistory}/> }
         { openCashOutModal && <CashOutModal /> }

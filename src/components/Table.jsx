@@ -4,11 +4,11 @@ import { methods } from '../functions';
 const { addCommas } = methods.strings;
 
 const statusStyling = (column, item) => (
-    column.label.toLowerCase() == 'status' &&  
-    item[column.label.toLowerCase()] == 'pending' && 'text-orange-500' ||
-    item[column.label.toLowerCase()] == 'declined' && 'text-red-800' || 
-    item[column.label.toLowerCase()] == 'approved' && 'text-secondary'
-  );
+  column.label.toLowerCase() == 'status' &&  
+  item[column.label.toLowerCase()] == 'pending' && 'text-orange-500' ||
+  item[column.label.toLowerCase()] == 'declined' && 'text-red-800' || 
+  item[column.label.toLowerCase()] == 'approved' && 'text-secondary'
+);
   
 const formatText = (column, item) => {
   if (column == 'amount') return addCommas(item)
