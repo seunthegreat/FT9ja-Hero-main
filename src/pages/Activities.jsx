@@ -87,7 +87,7 @@ const Activities = () => {
               ))}
             </div>
 
-            { showActivityHistory && <HistoryModal type='payment' open={showActivityHistory} handleClose={() => setShowActivityHistory(false)}/> }
+            { showActivityHistory && <HistoryModal type='activities' open={showActivityHistory} handleClose={() => setShowActivityHistory(false)}/> }
 
             <div className='h-full'>
               <div className='h-screen  flex flex-col items-center'>

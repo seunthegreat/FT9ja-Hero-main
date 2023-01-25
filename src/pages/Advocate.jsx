@@ -1,12 +1,13 @@
 import React, { useCallback, useRef } from 'react';
 import { useStateContext } from '../context/ContextProvider';
-import { Sidebar, DNavbar, Tips } from '../components';
+import { Sidebar, DNavbar, Tips, Button, HistoryModal } from '../components';
 import { useDropzone } from 'react-dropzone';
 import { Document } from '../assets';
 import { tips } from '../constants';
 
 const Advocate = () => {
-  const { activeMenu, showAdvocateTip, setShowAdvocateTip } = useStateContext();
+  const { activeMenu, showAdvocateTip, setShowAdvocateTip, showAdvocateHistory, 
+    setShowAdvocateHistory } = useStateContext();
   const inputRef = useRef(null);
   const onDrop = useCallback(acceptedFiles => {
     // Do something with the files
@@ -73,6 +74,21 @@ const Advocate = () => {
               onClick={() => setShowAdvocateTip(false)}
               style={''}
             />
+          }
+
+          <div className={`${showAdvocateTip ? 'mb-5' : 'mt-5'} flex justify-end`}>
+            <Button 
+              title={"View History"} 
+              smallest styles={''} 
+              onClick={() => setShowAdvocateHistory(true)}
+            />
+          </div>
+
+          { showAdvocateHistory && 
+              <HistoryModal type='advocacy' 
+                open={showAdvocateHistory} 
+                handleClose={() => setShowAdvocateHistory(false)}
+              /> 
           }
               
           <div className={`${showAdvocateTip ? 'lg:mt-0' : 'lg:mt-5 xs:mt-20'} h-5/6 xl:h-3/4 

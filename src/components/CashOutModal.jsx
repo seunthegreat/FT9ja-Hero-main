@@ -4,6 +4,7 @@ import { useStateContext } from '../context/ContextProvider';
 import { PayPal, Bank } from '../assets';
 import { Tips, Button } from ".";
 import { text } from '../style';
+import { GrClose } from "react-icons/gr";
 import Select from 'react-select';
 import { methods } from '../functions';
 const { addCommas } = methods.strings;
@@ -84,28 +85,32 @@ const CashOutModal = () => {
           onClose={handleClose}
           className='flex flex-col justify-center items-center'
       >
-        <div className="flex flex-col rounded-[10px] bg-offWhite lg:w-[60%]
+        <div className="flex flex-col md:rounded-[10px] bg-offWhite lg:w-[60%]
           xs:w-[100%] ss:h-[100%] xs:h-[100%] overflow-hidden lg:p-10 md:p-10 xs:px-0 xs:py-10">
           { transferPage == "main" && (
             <>
               <div className='flex flex-col w-full justify-center items-center'>
-                <div className='flex flex-row  w-full items-center justify-center'>
-                <p className='text-2xl'>{content.headerTitle.main}</p>
-                <button 
-                  onClick={handleClose} 
-                  className='w-8 h-8 bg-button rounded relative left-60 bottom-0 hover:scale-110'>
-                    <p className='text-white'>x</p>
-                </button>
-                </div>
-                <p className='text-sm py-5'>{content.body}</p>
+              <div className='flex flex-row w-full md:mb-10 sm:mb-5 justify-between lg:px-0 xs:px-5 xs:mb-5'>
+                      <p className={`${text.subHeading}`}>{content.headerTitle.main}</p>
+
+                      <div className=''>
+                          <button
+                              className='hover:scale-105 w-[25px] h-[25px] bg-white items-center  justify-center flex rounded-full'
+                              onClick={handleClose}
+                          >
+                              <GrClose />
+                          </button>
+                      </div>
+                  </div>
+                <p className='text-sm text-center my-5 w-[85%]'>{content.body}</p>
               </div>
 
-              <div className='flex flex-row grid grid-cols-2 gap-6 items-center justify-center h-[50%] px-10'>
+              <div className='flex flex-row grid ss:grid-cols-2 xs:grid-cols-1 gap-6 items-center justify-center h-[50%] px-10'>
                 { paymentMethods.map((item, index) => (
                   <button 
                     key={index} 
                     onClick={() => handlePaymentMethod(item.id)}
-                    className='flex flex-col w-full bg-white h-[80%] items-center justify-center hover:scale-110'>
+                    className='flex flex-col w-full bg-white h-48 items-center justify-center hover:scale-110'>
                     <img src={item.icon}/>
                     <p className="mt-4">{item.label}</p>
                   </button>
@@ -151,7 +156,7 @@ const CashOutModal = () => {
 
                   { !bankInfo.bankName && !bankInfo.accNum ? (
                     <>
-                      <div className='flex flex-col grid ss:grid-cols-2 :grid-cols-1 gap-4 items-center my-5'>
+                      <div className='flex flex-col grid ss:grid-cols-2 xs:grid-cols-1 gap-4 items-center my-5'>
                         <Select options={banksArr} onChange={ e => setBankName(e.value)} />
                         <input 
                           placeholder="Account Number" 
@@ -194,7 +199,7 @@ const CashOutModal = () => {
 
                         <div className='mt-5 flex flex-row w-full px-10 grid grid-cols-2 gap-5'>
                           <Button outline title="Cancel" smallest onClick={() => setConfirmWithdrawal(false) }/>
-                          <Button title="Save" smallest/>
+                          <Button title="Confirm" smallest/>
                         </div>
 
                        

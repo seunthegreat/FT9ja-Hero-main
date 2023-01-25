@@ -627,13 +627,29 @@ export const tableFields = {
       {id: 0, label: "Name"},
       {id: 1, label: "Date"},
       {id: 2, label: "Method"},
-      {id: 2, label: "Quantity"},
-      {id: 3, label: "Status"},
+      {id: 3, label: "Quantity"},
+      {id: 4, label: "Status"},
     ],
     gifts: [
       {id: 0, label: "Name"},
       {id: 1, label: "Earned"},
       {id: 2, label: "Expires"},
+      {id: 3, label: "Status"},
+    ],
+  },
+  advocate: {
+    fields:  [
+      {id: 0, label: "Name"},
+      {id: 1, label: "Date"},
+      {id: 2, label: "Type"},
+      {id: 3, label: "Status"},
+    ],
+  },
+  activityHistory: {
+    activities:  [
+      {id: 0, label: "Name"},
+      {id: 1, label: "Date"},
+      {id: 2, label: "Type"},
       {id: 3, label: "Status"},
     ],
   }
@@ -658,14 +674,14 @@ export const mock = {
       { "id": 5, "date": "01/05/2022", "status": "pending", "amount": 40000 }
     ],
     commissionHistory : [
-      { id: 1, referee: "John Smith", amount: 10000, date: "01/01/2023", status: "pending" },
-      { id: 2, referee: "Jane Doe", amount: 10000, date: "01/01/2023", status: "approved" },
-      { id: 3, referee: "Bob Johnson", amount: 10000, date: "01/01/2023", status: "pending" },
-      { id: 4, referee: "Emily Davis", amount: 10000, date: "01/01/2023", status: "approved" },
-      { id: 5, referee: "Michael Brown", amount: 10000, date: "01/01/2023", status: "pending" },
-      { id: 6, referee: "Sarah Miller", amount: 10000, date: "01/01/2023", status: "approved" },
-      { id: 7, referee: "David Wilson", amount: 10000, date: "01/01/2023", status: "pending" },
-      { id: 8, referee: "Jessica Moore", amount: 10000, date: "01/01/2023", status: "approved" }
+      { id: 1, referee: "John Smith", amount: "10000", date: "01/01/2023", status: "pending" },
+      { id: 2, referee: "Jane Doe", amount: "10000", date: "01/01/2023", status: "approved" },
+      { id: 3, referee: "Bob Johnson", amount: "10000", date: "01/01/2023", status: "pending" },
+      { id: 4, referee: "Emily Davis", amount: "10000", date: "01/01/2023", status: "approved" },
+      { id: 5, referee: "Michael Brown", amount: "10000", date: "01/01/2023", status: "pending" },
+      { id: 6, referee: "Sarah Miller", amount: "10000", date: "01/01/2023", status: "approved" },
+      { id: 7, referee: "David Wilson", amount: "10000", date: "01/01/2023", status: "pending" },
+      { id: 8, referee: "Jessica Moore", amount: "10000", date: "01/01/2023", status: "approved" }
     ],
     merchHistory : [
       { "id": 1, "name": "T-Shirt", "date": "01/5/2023", "method": "Referral Commission", "quantity": 2, "status": "pending" },
@@ -676,4 +692,20 @@ export const mock = {
     ],
     giftHistory :[],
   },
+  advocate: {
+    history:  [
+      { "id": 1, "name": "Proof 1", "date": "01/5/2023", "type": "Image", "status": "successful" },
+      { "id": 2, "name": "Proof 2", "date": "01/5/2023", "type": "Image", "status": "successful" },
+      { "id": 3, "name": "Proof 3", "date": "01/5/2023", "type": "Video", "status": "successful" },
+      { "id": 4, "name": "Proof 4", "date": "01/5/2023", "type": "Image", "status": "failed" }, 
+      { "id": 5, "name": "Proof 5", "date": "01/5/2023", "type": "Video", "status": "failed" }
+    ],
+  },
+  activities: {
+    data: [
+      { "id": 1, "name": "Proof 1", "date": "01/5/2023", "type": "Image", "status": "successful" },
+      { "id": 2, "name": "Proof 2", "date": "01/5/2023", "type": "Image", "status": "successful" },
+      { "id": 3, "name": "Proof 3", "date": "01/5/2023", "type": "Video", "status": "successful" },
+    ],
+  }
 }

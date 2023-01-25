@@ -110,6 +110,7 @@ export const ContextProvider = ({children}) => {
 
   //--Advocate--//
   const [showAdvocateTip, setShowAdvocateTip] = useState(advocateState.showAdvocateTip);
+  const [showAdvocateHistory, setShowAdvocateHistory] = useState(false);
 
   //--Benefits--//
   const [showBenefitsTip, setShowBenefitsTip] = useState(benefitState.showBenefitsTip);
@@ -154,7 +155,7 @@ export const ContextProvider = ({children}) => {
           showActivitiesTip, setShowActivitiesTip, showActivityHistory, setShowActivityHistory,
 
           //--Advocate--//
-          showAdvocateTip, setShowAdvocateTip,
+          showAdvocateTip, setShowAdvocateTip, showAdvocateHistory, setShowAdvocateHistory,
 
           //--Benefits--//
           showBenefitsTip, setShowBenefitsTip,

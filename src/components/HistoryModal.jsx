@@ -10,8 +10,12 @@ import { tableFields, selectionData, mock } from '../constants';
 
 //--Data--//
 const { commissions, stipends, merch, gifts } = tableFields.benefitsHistory;
+const { fields } = tableFields.advocate;
+const { activities } = tableFields.activityHistory
 const { historyTypes } = selectionData;
 const { paymentHistory, commissionHistory, merchHistory, giftHistory } = mock.benefits;
+const { data } = mock.activities;
+const { history } = mock.advocate;
 
 //--Function--//
 const { addCommas } = methods.strings;
@@ -27,7 +31,7 @@ const HistoryModal = ({type, handleClose, open}) => {
           className='flex flex-col justify-center items-center'
       >
           {type && type == 'payment' &&  (
-              <div className='flex flex-col rounded-[10px] bg-offWhite lg:w-[60%]
+            <div className='flex flex-col md:rounded-[10px]  bg-offWhite lg:w-[60%]
                xs:w-[100%] xs:h-[100%] overflow-hidden lg:p-10 md:p-10 xs:px-0 xs:py-10'>
                   <div className='flex flex-row md:mb-10 sm:mb-5 justify-between lg:px-0 xs:px-5 xs:mb-5'>
                       <p className={`${text.subHeading}`}>History</p>
@@ -42,7 +46,7 @@ const HistoryModal = ({type, handleClose, open}) => {
                       </div>
                   </div>
 
-                  <div className='flex flex-row w-full mb-5'>
+                  <div className='flex flex-row w-full mb-5 lg:px-0 xs:px-5'>
                     <Select
                        options={historyTypes}
                         className="w-[30%]"
@@ -57,7 +61,47 @@ const HistoryModal = ({type, handleClose, open}) => {
                   { historySelection == 'gifts' && <Table data={giftHistory} tableFields={gifts} /> }
                   
               </div>
-          ) }
+          ) ||
+            type == 'advocacy' &&  (
+            <div className='flex flex-col md:rounded-[10px]  bg-offWhite lg:w-[60%]
+               xs:w-[100%] xs:h-[100%] overflow-hidden lg:p-10 md:p-10 xs:px-0 xs:py-10'>
+                <div className='flex flex-row md:mb-10 sm:mb-5 justify-between lg:px-0 xs:px-5 xs:mb-5'>
+                  <p className={`${text.subHeading}`}>History</p>
+                  <div className=''>
+                    <button
+                      className='hover:scale-105 w-[25px] h-[25px] bg-white items-center  justify-center flex rounded-full'
+                      onClick={handleClose}
+                    >
+                      <GrClose />
+                    </button>
+                  </div>
+                </div>
+
+                <Table data={history} tableFields={fields} /> 
+            </div>
+          ) 
+          
+        || type == 'activities' &&  (       
+          <div className='flex flex-col md:rounded-[10px]  bg-offWhite lg:w-[60%]
+               xs:w-[100%] xs:h-[100%] overflow-hidden lg:p-10 md:p-10 xs:px-0 xs:py-10'>
+                <div className='flex flex-row md:mb-10 sm:mb-5 justify-between lg:px-0 xs:px-5 xs:mb-5'>
+                  <p className={`${text.subHeading}`}>History</p>
+                  <div className=''>
+                    <button
+                      className='hover:scale-105 w-[25px] h-[25px] bg-white items-center  justify-center flex rounded-full'
+                      onClick={handleClose}
+                    >
+                      <GrClose />
+                    </button>
+                  </div>
+                </div>
+
+                <Table data={data} tableFields={activities} /> 
+            </div>
+          ) 
+          
+        }
+
       </Modal>
   )
 };
