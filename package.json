@@ -14,7 +14,7 @@
     "@emotion/styled": "^11.10.5",
     "@headlessui/react": "^1.7.7",
     "@lottiefiles/react-lottie-player": "^3.5.0",
-    "@mui/material": "^5.11.4",
+    "@mui/material": "^5.13.4",
     "@ramonak/react-progress-bar": "^5.0.3",
     "clipboard-copy": "^4.0.1",
     "jest": "^29.3.1",
