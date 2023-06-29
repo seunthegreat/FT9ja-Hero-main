@@ -13,7 +13,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@headlessui/react": "^1.7.7",
-    "@lottiefiles/react-lottie-player": "^3.5.0",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@mui/material": "^5.11.4",
     "@ramonak/react-progress-bar": "^5.0.3",
     "clipboard-copy": "^4.0.1",
